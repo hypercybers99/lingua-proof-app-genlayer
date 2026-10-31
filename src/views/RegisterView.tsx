@@ -414,6 +414,20 @@ export const RegisterView: React.FC = () => {
             </div>
           )}
 
+          {txHash && (
+            <div className="p-3 bg-slate-100 dark:bg-slate-900 rounded-lg text-xs font-mono break-all max-w-lg mx-auto">
+              <a
+                href={`${CHAIN_CONFIG.explorerUrl}/tx/${txHash}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[#0D6E6E] dark:text-teal-400 hover:underline inline-flex items-center gap-1"
+              >
+                View on Explorer: {txHash}
+                <ExternalLink className="w-3 h-3 shrink-0" />
+              </a>
+            </div>
+          )}
+
           <div className="flex justify-center gap-3 pt-3">
             <button
               type="button"
