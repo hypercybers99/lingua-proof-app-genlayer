@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
-import { createAccount, generatePrivateKey, createClient } from "genlayer-js";
+import { createAccount, generatePrivateKey, createClient, chains } from "genlayer-js";
 import { CHAIN_CONFIG } from "../config/chain";
 
 interface WalletContextType {
@@ -122,13 +122,7 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const getClient = useCallback(() => {
     return createClient({
-      chain: {
-        id: CHAIN_CONFIG.chainId,
-        name: CHAIN_CONFIG.networkName,
-        rpcUrls: {
-          default: { http: [CHAIN_CONFIG.rpcUrl] },
-        },
-      } as any,
+      chain: chains.studionet,
       endpoint: CHAIN_CONFIG.rpcUrl,
       account,
     });
