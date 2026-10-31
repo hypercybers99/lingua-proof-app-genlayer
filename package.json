@@ -1,0 +1,44 @@
+{
+  "name": "lingua-proof-app-genlayer",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "scan:ascii": "node scripts/scan_ascii.mjs",
+    "scan:banned": "node scripts/scan_banned.mjs",
+    "scan:secrets": "node scripts/scan_secrets.mjs",
+    "scan:dialogs": "node scripts/scan_browser_dialogs.mjs",
+    "check:address": "node scripts/check_address_consistency.mjs",
+    "check:reference": "node scripts/check_reference_contract.mjs",
+    "verify:bundle": "node scripts/verify_bundle.mjs",
+    "check": "npm run check:reference && npm run build && npm run test && npm run scan:ascii && npm run scan:banned && npm run scan:secrets && npm run scan:dialogs && npm run check:address && npm run verify:bundle"
+  },
+  "dependencies": {
+    "genlayer-js": "^1.1.8",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^22.10.7",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "playwright": "^1.64.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vitest": "^3.0.4"
+  }
+}

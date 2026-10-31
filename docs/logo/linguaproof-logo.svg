@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="sealTealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A5555" />
+      <stop offset="50%" stop-color="#0D6E6E" />
+      <stop offset="100%" stop-color="#149191" />
+    </linearGradient>
+    <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#92400E" />
+      <stop offset="50%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#FDE68A" />
+    </linearGradient>
+    <linearGradient id="parchmentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F5F5F0" />
+    </linearGradient>
+    <filter id="sealShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Background Base / Drop Shadow -->
+  <circle cx="256" cy="256" r="236" fill="url(#sealTealGrad)" filter="url(#sealShadow)" />
+
+  <!-- Serrated Notary Edge (Points) -->
+  <circle cx="256" cy="256" r="226" fill="none" stroke="#D97706" stroke-width="3" stroke-dasharray="6,4" opacity="0.8" />
+  <circle cx="256" cy="256" r="218" fill="#0D6E6E" stroke="url(#brassGrad)" stroke-width="4" />
+
+  <!-- Outer Ring Text Track -->
+  <path id="textCircleTop" d="M 64,256 A 192,192 0 1,1 448,256" fill="none" />
+  <path id="textCircleBottom" d="M 448,256 A 192,192 0 0,1 64,256" fill="none" />
+
+  <text font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#FDE68A" letter-spacing="3.5">
+    <textPath href="#textCircleTop" startOffset="50%" text-anchor="middle">
+      LINGUAPROOF NOTARY &#x2022; STUDIONET
+    </textPath>
+  </text>
+  <text font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#FDE68A" letter-spacing="3">
+    <textPath href="#textCircleBottom" startOffset="50%" text-anchor="middle">
+      &#x2605; TRANSLATION FIDELITY &#x2605;
+    </textPath>
+  </text>
+
+  <!-- Inner Seal Circle -->
+  <circle cx="256" cy="256" r="158" fill="#FBFBFA" stroke="#D97706" stroke-width="3" />
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#0D6E6E" stroke-width="1.5" stroke-dasharray="3,3" />
+
+  <!-- Open Parchment Document -->
+  <path d="M 166,160 C 166,150 174,142 184,142 L 328,142 C 338,142 346,150 346,160 L 346,352 C 346,362 338,370 328,370 L 184,370 C 174,370 166,362 166,352 Z" 
+        fill="url(#parchmentGrad)" stroke="#CBD5E1" stroke-width="2" />
+
+  <!-- Parchment Fold / Header -->
+  <rect x="180" y="160" width="152" height="6" rx="3" fill="#0D6E6E" opacity="0.7" />
+  <rect x="180" y="176" width="100" height="4" rx="2" fill="#94A3B8" />
+
+  <!-- Left Linguistic Bracket & Glyph [ A ] -->
+  <g transform="translate(184, 206)">
+    <!-- Bracket -->
+    <path d="M 12,0 L 4,0 L 4,56 L 12,56" fill="none" stroke="#0D6E6E" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 38,0 L 46,0 L 46,56 L 38,56" fill="none" stroke="#0D6E6E" stroke-width="3.5" stroke-linecap="round" />
+    <!-- Glyph 'A' -->
+    <text x="25" y="38" font-family="'Source Serif 4', Georgia, serif" font-size="28" font-weight="700" fill="#0F172A" text-anchor="middle">A</text>
+  </g>
+
+  <!-- Center Fidelity Alignment Beam (Balance / Bi-directional Notary Anchor) -->
+  <g transform="translate(244, 226)">
+    <!-- Bi-directional arrows / equivalence anchor -->
+    <path d="M -8,8 L 16,8" fill="none" stroke="#D97706" stroke-width="3" stroke-linecap="round" />
+    <polygon points="18,8 10,4 10,12" fill="#D97706" />
+    <path d="M 16,18 L -8,18" fill="none" stroke="#D97706" stroke-width="3" stroke-linecap="round" />
+    <polygon points="-10,18 -2,14 -2,22" fill="#D97706" />
+  </g>
+
+  <!-- Right Linguistic Bracket & Glyph [ &#x8A00; ] -->
+  <g transform="translate(276, 206)">
+    <!-- Bracket -->
+    <path d="M 12,0 L 4,0 L 4,56 L 12,56" fill="none" stroke="#0D6E6E" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 38,0 L 46,0 L 46,56 L 38,56" fill="none" stroke="#0D6E6E" stroke-width="3.5" stroke-linecap="round" />
+    <!-- Glyph '&#x8A00;' (Yan - Speech / Word) -->
+    <text x="25" y="38" font-family="'Noto Serif', serif" font-size="24" font-weight="700" fill="#0F172A" text-anchor="middle">&#x8A00;</text>
+  </g>
+
+  <!-- Notary Wax Ribbon & Verification Checkmark -->
+  <g transform="translate(256, 316)">
+    <!-- Wax ribbon tabs -->
+    <path d="M -22,10 L -30,38 L -14,32 L -4,40 L -10,12 Z" fill="#92400E" />
+    <path d="M 22,10 L 30,38 L 14,32 L 4,40 L 10,12 Z" fill="#92400E" />
+    <!-- Wax seal wafer -->
+    <circle cx="0" cy="8" r="22" fill="#D97706" stroke="#B45309" stroke-width="2" />
+    <circle cx="0" cy="8" r="18" fill="#F59E0B" />
+    <!-- Checkmark / Scales icon -->
+    <path d="M -7,8 L -2,13 L 8,3" fill="none" stroke="#78350F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>
