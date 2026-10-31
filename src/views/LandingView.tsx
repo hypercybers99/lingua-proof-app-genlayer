@@ -241,7 +241,7 @@ export const LandingView: React.FC = () => {
             <h2 className="font-serif font-bold text-lg text-[#111827] dark:text-[#F3F4F6]">
               Featured Notarized Records
             </h2>
-            <p className="text-xs text-slate-500">Live translations audited by Studionet validators</p>
+            <p className="text-xs text-slate-500">Translations audited by Studionet validators</p>
           </div>
           <Link
             to="/translations"

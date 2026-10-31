@@ -177,6 +177,7 @@ export const TranslationDetailView: React.FC = () => {
         <div className="flex flex-wrap items-center gap-2.5">
           <button
             type="button"
+            data-testid="open-audit-modal-btn"
             onClick={() => setIsAuditModalOpen(true)}
             className="px-4 py-2 bg-[#0D6E6E] hover:bg-[#0A5555] text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 shadow-sm transition"
           >
@@ -186,6 +187,7 @@ export const TranslationDetailView: React.FC = () => {
 
           <button
             type="button"
+            data-testid="open-revise-modal-btn"
             onClick={() => setIsReviseModalOpen(true)}
             className="px-4 py-2 bg-white dark:bg-[#1A1D20] hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold flex items-center gap-1.5 shadow-sm transition"
           >
@@ -302,6 +304,7 @@ export const TranslationDetailView: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
+                      data-testid="open-challenge-modal-btn"
                       onClick={() => setChallengeTargetIndex(seg.index)}
                       className="px-2.5 py-1 text-xs font-semibold rounded border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
                     >

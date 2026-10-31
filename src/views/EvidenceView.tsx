@@ -21,7 +21,7 @@ export const EvidenceView: React.FC = () => {
           On-Chain Verification Records
         </div>
         <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#111827] dark:text-[#F3F4F6]">
-          Live On-Chain Evidence Scenarios
+          On-Chain Evidence Scenarios
         </h1>
         <p className="text-sm text-slate-600 dark:text-slate-400">
           Audited evidence records executed on {CHAIN_CONFIG.networkName} against contract{" "}
@@ -31,14 +31,14 @@ export const EvidenceView: React.FC = () => {
         </p>
       </div>
 
-      {/* Latency Spread & Consensus Clarification Notice */}
+      {/* Latency Spread Notice */}
       <div className="p-4 rounded-xl bg-[#F5F5F0] dark:bg-[#181C20] border border-[#E5E7EB] dark:border-[#2D3339] text-xs space-y-2">
         <div className="flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-200">
           <Info className="w-4 h-4 text-[#0D6E6E]" />
           <span>Latency Spread Analysis:</span>
         </div>
         <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
-          Audit transactions typically resolve in 25–42 seconds under active consensus on Studionet. The 118.42 second outlier recorded on transaction <code>0x7649c600...</code> during case E4 was caused by a transient Studionet RPC queue congestion event, not contract latency.
+          Audit transactions typically resolve in 25–42 seconds under active consensus on Studionet. The measured duration for transaction <code>0x7649c600...</code> during case E4 was 118.42 seconds.
         </p>
       </div>
 

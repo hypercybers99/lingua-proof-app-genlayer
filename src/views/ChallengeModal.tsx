@@ -34,12 +34,6 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
   const isReasonValid = reason.trim().length >= minLen && reason.trim().length <= maxLen;
 
   const handleStartChallenge = async () => {
-    if (isZeroBalance) {
-      setErrorMessage("Your wallet balance is 0 GEN. Please fund your throwaway wallet from the Studionet faucet before challenging.");
-      setStep("error");
-      return;
-    }
-
     if (!isReasonValid) return;
 
     setStep("submitting");
@@ -98,10 +92,12 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
             </p>
 
             <div className="space-y-1.5">
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              <label htmlFor="challenge-reason-input" className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
                 Justification &amp; Linguistic Reasoning:
               </label>
               <textarea
+                id="challenge-reason-input"
+                aria-label="Justification & Linguistic Reasoning"
                 rows={4}
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
@@ -123,29 +119,29 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
             </div>
 
             {isZeroBalance && (
-              <InAppNotice
-                variant="warning"
-                title="Zero Balance"
-                message="Challenging a segment consumes gas on Studionet. Fund your key first."
-                action={{
-                  label: "Open Faucet",
-                  onClick: () => window.open(CHAIN_CONFIG.faucetUrl, "_blank"),
-                }}
-              />
+              <div
+                role="status"
+                data-testid="challenge-funding-notice"
+                className="p-3 rounded-lg bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-200 text-xs"
+              >
+                <span className="font-semibold">Informational:</span> Faucet funding is optional on GenLayer Studionet (Preview); transactions succeed with 0 GEN balance. (Studionet Preview behavior may change).
+              </div>
             )}
 
             <div className="flex justify-end gap-3 pt-2">
               <button
                 type="button"
                 onClick={handleReset}
+                data-testid="challenge-cancel-btn"
                 className="px-4 py-2 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800"
               >
                 Cancel
               </button>
               <button
                 type="button"
-                disabled={!isReasonValid || isZeroBalance}
+                disabled={!isReasonValid}
                 onClick={handleStartChallenge}
+                data-testid="challenge-submit-btn"
                 className="px-5 py-2 bg-[#0D6E6E] hover:bg-[#0A5555] disabled:opacity-40 text-white rounded-lg text-xs font-semibold flex items-center gap-2 shadow-sm transition"
               >
                 <Scale className="w-4 h-4" />

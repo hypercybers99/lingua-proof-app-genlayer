@@ -125,6 +125,8 @@ export const TranslationsListView: React.FC = () => {
         <div className="relative flex-1">
           <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
+            id="translation-search-input"
+            aria-label="Search by title, 12-hex ID, or submitter address"
             type="text"
             value={search}
             onChange={(e) => {
@@ -139,6 +141,7 @@ export const TranslationsListView: React.FC = () => {
         {/* Filter by Fidelity Class */}
         <div className="flex items-center gap-2">
           <select
+            aria-label="Filter by Fidelity Class"
             value={selectedClass}
             onChange={(e) => {
               setSelectedClass(e.target.value);
@@ -155,6 +158,7 @@ export const TranslationsListView: React.FC = () => {
 
           {/* Filter by Language */}
           <select
+            aria-label="Filter by Language"
             value={selectedLang}
             onChange={(e) => {
               setSelectedLang(e.target.value);

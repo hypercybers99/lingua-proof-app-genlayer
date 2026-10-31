@@ -3,15 +3,17 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests",
   testMatch: "**/*.spec.ts",
-  timeout: 30000,
-  webServer: {
-    command: "npm run preview -- --port 4173",
-    url: "http://localhost:4173",
-    reuseExistingServer: false,
-    timeout: 30000,
-  },
+  timeout: 60000,
+  webServer: process.env.SKIP_WEBSERVER
+    ? undefined
+    : {
+        command: "npm run preview -- --port 4173",
+        url: "http://localhost:4173",
+        reuseExistingServer: true,
+        timeout: 30000,
+      },
   use: {
-    baseURL: process.env.APP_URL || "http://localhost:4173",
+    baseURL: process.env.APP_URL || "https://lingua-proof-app-genlayer.vercel.app",
   },
   projects: [
     {

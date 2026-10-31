@@ -46,7 +46,7 @@ export const Navbar: React.FC = () => {
   const formattedBalance = balance !== null ? `${(Number(balance) / 1e18).toFixed(4)} GEN` : "...";
 
   return (
-    <nav className="sticky top-0 z-30 bg-[#FBFBFA]/90 dark:bg-[#0F1215]/90 backdrop-blur-md border-b border-[#E5E7EB] dark:border-[#2D3339]">
+    <nav className="sticky top-0 z-20 bg-[#FBFBFA]/90 dark:bg-[#0F1215]/90 backdrop-blur-md border-b border-[#E5E7EB] dark:border-[#2D3339]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand & Logo */}
         <Link to="/" className="flex items-center gap-3 group">

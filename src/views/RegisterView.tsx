@@ -87,12 +87,6 @@ export const RegisterView: React.FC = () => {
   }, [pairs]);
 
   const handleSubmit = async () => {
-    if (isZeroBalance) {
-      setErrorMessage("Wallet balance is 0 GEN. Please fund your throwaway key before registering.");
-      setStep("error");
-      return;
-    }
-
     if (validationError) {
       setErrorMessage(validationError);
       setStep("error");
@@ -181,10 +175,12 @@ export const RegisterView: React.FC = () => {
             </h2>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="translation-title-input" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                 Translation Title / Label:
               </label>
               <input
+                id="translation-title-input"
+                aria-label="Translation Title / Label"
                 type="text"
                 value={label}
                 onChange={(e) => setLabel(e.target.value)}
@@ -203,6 +199,7 @@ export const RegisterView: React.FC = () => {
                   Source Language:
                 </label>
                 <select
+                  aria-label="Source Language"
                   value={sourceLang}
                   onChange={(e) => setSourceLang(e.target.value)}
                   className="w-full p-2.5 text-sm bg-[#FBFBFA] dark:bg-[#121518] border border-slate-300 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200"
@@ -220,6 +217,7 @@ export const RegisterView: React.FC = () => {
                   Target Language:
                 </label>
                 <select
+                  aria-label="Target Language"
                   value={targetLang}
                   onChange={(e) => setTargetLang(e.target.value)}
                   className="w-full p-2.5 text-sm bg-[#FBFBFA] dark:bg-[#121518] border border-slate-300 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200"
@@ -282,10 +280,12 @@ export const RegisterView: React.FC = () => {
 
                     <div className="grid md:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
+                        <label htmlFor={`src-segment-${idx}`} className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
                           Source Segment ({sourceLang.toUpperCase()}):
                         </label>
                         <textarea
+                          id={`src-segment-${idx}`}
+                          aria-label={`Source Segment ${idx + 1} (${sourceLang.toUpperCase()})`}
                           rows={2}
                           value={p.src}
                           onChange={(e) => updatePair(idx, "src", e.target.value)}
@@ -295,10 +295,12 @@ export const RegisterView: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
+                        <label htmlFor={`tgt-segment-${idx}`} className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
                           Target Translation ({targetLang.toUpperCase()}):
                         </label>
                         <textarea
+                          id={`tgt-segment-${idx}`}
+                          aria-label={`Target Translation Segment ${idx + 1} (${targetLang.toUpperCase()})`}
                           rows={2}
                           value={p.tgt}
                           onChange={(e) => updatePair(idx, "tgt", e.target.value)}
@@ -340,23 +342,22 @@ export const RegisterView: React.FC = () => {
           )}
 
           {isZeroBalance && (
-            <InAppNotice
-              variant="warning"
-              title="Zero Gas Balance"
-              message="Registering a translation requires gas on Studionet. Open the faucet to fund your key."
-              action={{
-                label: "Get Free Studionet GEN",
-                onClick: () => window.open(CHAIN_CONFIG.faucetUrl, "_blank"),
-              }}
-            />
+            <div
+              role="status"
+              data-testid="register-funding-notice"
+              className="p-3.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-200 text-xs"
+            >
+              <span className="font-semibold">Informational:</span> Faucet funding is optional on GenLayer Studionet (Preview); transactions succeed with 0 GEN balance. (Studionet Preview behavior may change).
+            </div>
           )}
 
           {/* Submit Action */}
           <div className="flex justify-end gap-3 pt-4">
             <button
               type="button"
-              disabled={!!validationError || isZeroBalance}
+              disabled={!!validationError}
               onClick={handleSubmit}
+              data-testid="register-submit-btn"
               className="px-6 py-2.5 bg-[#0D6E6E] hover:bg-[#0A5555] disabled:opacity-40 text-white rounded-xl text-sm font-semibold flex items-center gap-2 shadow-sm transition"
             >
               <ShieldCheck className="w-4 h-4" />

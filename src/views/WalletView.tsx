@@ -78,17 +78,20 @@ export const WalletView: React.FC = () => {
         </p>
       </div>
 
-      {/* Zero Balance Warning */}
+      {/* Unfunded Key Status Notice */}
       {isZeroBalance && (
-        <InAppNotice
-          variant="warning"
-          title="Account Unfunded (0 GEN)"
-          message="Transactions on GenLayer Studionet (Preview) require gas tokens. Please claim free test funds using the faucet below."
-          action={{
-            label: "Open Studionet Faucet",
-            onClick: () => window.open(CHAIN_CONFIG.faucetUrl, "_blank"),
-          }}
-        />
+        <div
+          role="status"
+          data-testid="wallet-funding-status"
+          className="p-4 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-200 text-xs sm:text-sm space-y-1"
+        >
+          <div className="font-semibold flex items-center gap-2">
+            <span>Faucet Funding Optional (0 GEN Measured)</span>
+          </div>
+          <p className="text-slate-600 dark:text-slate-300">
+            On GenLayer Studionet (Preview), transaction gas fees are currently zero. On-chain measurements (recorded 2026-10-31) confirm that unfunded throwaway keys with 0 GEN balance successfully execute registration, audit, challenge, and revision transactions. Faucet funding remains optional. (Studionet Preview behavior may change).
+          </p>
+        </div>
       )}
 
       {/* Account Overview Card */}
@@ -209,6 +212,8 @@ export const WalletView: React.FC = () => {
 
         <form onSubmit={handleImport} className="space-y-3">
           <input
+            id="import-private-key-input"
+            aria-label="Private Key Hex Input"
             type="password"
             value={inputKey}
             onChange={(e) => setInputKey(e.target.value)}

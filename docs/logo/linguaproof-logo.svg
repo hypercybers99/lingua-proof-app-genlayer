@@ -46,50 +46,60 @@
   <circle cx="256" cy="256" r="158" fill="#FBFBFA" stroke="#D97706" stroke-width="3" />
   <circle cx="256" cy="256" r="150" fill="none" stroke="#0D6E6E" stroke-width="1.5" stroke-dasharray="3,3" />
 
-  <!-- Open Parchment Document -->
-  <path d="M 166,160 C 166,150 174,142 184,142 L 328,142 C 338,142 346,150 346,160 L 346,352 C 346,362 338,370 328,370 L 184,370 C 174,370 166,362 166,352 Z" 
-        fill="url(#parchmentGrad)" stroke="#CBD5E1" stroke-width="2" />
-
-  <!-- Parchment Fold / Header -->
-  <rect x="180" y="160" width="152" height="6" rx="3" fill="#0D6E6E" opacity="0.7" />
-  <rect x="180" y="176" width="100" height="4" rx="2" fill="#94A3B8" />
-
-  <!-- Left Linguistic Bracket & Glyph [ A ] -->
-  <g transform="translate(184, 206)">
-    <!-- Bracket -->
-    <path d="M 12,0 L 4,0 L 4,56 L 12,56" fill="none" stroke="#0D6E6E" stroke-width="3.5" stroke-linecap="round" />
-    <path d="M 38,0 L 46,0 L 46,56 L 38,56" fill="none" stroke="#0D6E6E" stroke-width="3.5" stroke-linecap="round" />
-    <!-- Glyph 'A' -->
-    <text x="25" y="38" font-family="'Source Serif 4', Georgia, serif" font-size="28" font-weight="700" fill="#0F172A" text-anchor="middle">A</text>
+  <!-- Center Motif: Notary Balance of Fidelity & Dual Parchment Scrolls -->
+  <!-- Left Scroll: Source Text -->
+  <g transform="translate(170, 180)">
+    <rect x="0" y="0" width="56" height="74" rx="4" fill="url(#parchmentGrad)" stroke="#0D6E6E" stroke-width="2.5" />
+    <line x1="10" y1="16" x2="46" y2="16" stroke="#0D6E6E" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="10" y1="28" x2="46" y2="28" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+    <line x1="10" y1="40" x2="38" y2="40" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+    <line x1="10" y1="52" x2="42" y2="52" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
   </g>
 
-  <!-- Center Fidelity Alignment Beam (Balance / Bi-directional Notary Anchor) -->
-  <g transform="translate(244, 226)">
-    <!-- Bi-directional arrows / equivalence anchor -->
-    <path d="M -8,8 L 16,8" fill="none" stroke="#D97706" stroke-width="3" stroke-linecap="round" />
-    <polygon points="18,8 10,4 10,12" fill="#D97706" />
-    <path d="M 16,18 L -8,18" fill="none" stroke="#D97706" stroke-width="3" stroke-linecap="round" />
-    <polygon points="-10,18 -2,14 -2,22" fill="#D97706" />
+  <!-- Right Scroll: Target Text -->
+  <g transform="translate(286, 180)">
+    <rect x="0" y="0" width="56" height="74" rx="4" fill="url(#parchmentGrad)" stroke="#0D6E6E" stroke-width="2.5" />
+    <line x1="10" y1="16" x2="46" y2="16" stroke="#0D6E6E" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="10" y1="28" x2="46" y2="28" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+    <line x1="10" y1="40" x2="38" y2="40" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+    <line x1="10" y1="52" x2="42" y2="52" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
   </g>
 
-  <!-- Right Linguistic Bracket & Glyph [ &#x8A00; ] -->
-  <g transform="translate(276, 206)">
-    <!-- Bracket -->
-    <path d="M 12,0 L 4,0 L 4,56 L 12,56" fill="none" stroke="#0D6E6E" stroke-width="3.5" stroke-linecap="round" />
-    <path d="M 38,0 L 46,0 L 46,56 L 38,56" fill="none" stroke="#0D6E6E" stroke-width="3.5" stroke-linecap="round" />
-    <!-- Glyph '&#x8A00;' (Yan - Speech / Word) -->
-    <text x="25" y="38" font-family="'Noto Serif', serif" font-size="24" font-weight="700" fill="#0F172A" text-anchor="middle">&#x8A00;</text>
+  <!-- Center Balance Pillar & Notary Beam -->
+  <g transform="translate(256, 170)">
+    <!-- Central Beam -->
+    <path d="M -54,20 L 54,20" stroke="#D97706" stroke-width="3.5" stroke-linecap="round" />
+    <circle cx="0" cy="20" r="5" fill="#B45309" />
+    <!-- Vertical Pillar -->
+    <line x1="0" y1="20" x2="0" y2="90" stroke="#0D6E6E" stroke-width="4" stroke-linecap="round" />
+    <!-- Base Pedestal -->
+    <path d="M -24,90 L 24,90" stroke="#0D6E6E" stroke-width="4" stroke-linecap="round" />
+    <path d="M -16,96 L 16,96" stroke="#0D6E6E" stroke-width="3" stroke-linecap="round" />
+    <!-- Left Balance Link -->
+    <line x1="-50" y1="20" x2="-50" y2="34" stroke="#D97706" stroke-width="2" stroke-dasharray="2,2" />
+    <!-- Right Balance Link -->
+    <line x1="50" y1="20" x2="50" y2="34" stroke="#D97706" stroke-width="2" stroke-dasharray="2,2" />
   </g>
 
-  <!-- Notary Wax Ribbon & Verification Checkmark -->
-  <g transform="translate(256, 316)">
-    <!-- Wax ribbon tabs -->
-    <path d="M -22,10 L -30,38 L -14,32 L -4,40 L -10,12 Z" fill="#92400E" />
-    <path d="M 22,10 L 30,38 L 14,32 L 4,40 L 10,12 Z" fill="#92400E" />
-    <!-- Wax seal wafer -->
+  <!-- Diagonal Feather Quill Across Base -->
+  <g transform="translate(256, 275) rotate(-35)">
+    <!-- Quill Shaft -->
+    <path d="M -55,0 Q 0,-6 65,0" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" />
+    <!-- Feather Vane -->
+    <path d="M -45,-1 Q -20,-18 35,-4 Q 0,-3 -45,-1 Z" fill="#FDE68A" stroke="#D97706" stroke-width="1.5" />
+    <!-- Nib -->
+    <polygon points="-55,0 -64,0 -58,3" fill="#92400E" />
+  </g>
+
+  <!-- Notary Wax Ribbon & Verification Seal -->
+  <g transform="translate(256, 320)">
+    <!-- Ribbon tails -->
+    <path d="M -20,10 L -28,36 L -12,30 L -2,38 L -8,12 Z" fill="#92400E" />
+    <path d="M 20,10 L 28,36 L 12,30 L 2,38 L 8,12 Z" fill="#92400E" />
+    <!-- Wax wafer -->
     <circle cx="0" cy="8" r="22" fill="#D97706" stroke="#B45309" stroke-width="2" />
     <circle cx="0" cy="8" r="18" fill="#F59E0B" />
-    <!-- Checkmark / Scales icon -->
+    <!-- Notary Monogram / Seal Glyph -->
     <path d="M -7,8 L -2,13 L 8,3" fill="none" stroke="#78350F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
   </g>
 </svg>

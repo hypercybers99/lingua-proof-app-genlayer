@@ -28,12 +28,6 @@ export const AuditModal: React.FC<AuditModalProps> = ({
   const [elapsedSec, setElapsedSec] = useState<number>(0);
 
   const handleStartAudit = async () => {
-    if (isZeroBalance) {
-      setErrorMessage("Your wallet balance is 0 GEN. Please fund your throwaway wallet from the Studionet faucet before auditing.");
-      setStep("error");
-      return;
-    }
-
     setStep("submitting");
     setErrorMessage("");
     setElapsedSec(0);
@@ -105,30 +99,29 @@ export const AuditModal: React.FC<AuditModalProps> = ({
             </div>
 
             {isZeroBalance && (
-              <InAppNotice
-                variant="warning"
-                title="Zero Balance Detected"
-                message="Transactions require gas on GenLayer Studionet (Preview). Please fund your key before proceeding."
-                action={{
-                  label: "Open Studionet Faucet",
-                  onClick: () => window.open(CHAIN_CONFIG.faucetUrl, "_blank"),
-                }}
-              />
+              <div
+                role="status"
+                data-testid="audit-funding-notice"
+                className="p-3 rounded-lg bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-200 text-xs"
+              >
+                <span className="font-semibold">Informational:</span> Faucet funding is optional on GenLayer Studionet (Preview); transactions succeed with 0 GEN balance. (Studionet Preview behavior may change).
+              </div>
             )}
 
             <div className="flex justify-end gap-3 pt-2">
               <button
                 type="button"
                 onClick={handleReset}
+                data-testid="audit-cancel-btn"
                 className="px-4 py-2 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800"
               >
                 Cancel
               </button>
               <button
                 type="button"
-                disabled={isZeroBalance}
                 onClick={handleStartAudit}
-                className="px-5 py-2 bg-[#0D6E6E] hover:bg-[#0A5555] disabled:opacity-40 text-white rounded-lg text-xs font-semibold flex items-center gap-2 shadow-sm transition"
+                data-testid="audit-submit-btn"
+                className="px-5 py-2 bg-[#0D6E6E] hover:bg-[#0A5555] text-white rounded-lg text-xs font-semibold flex items-center gap-2 shadow-sm transition"
               >
                 <ShieldCheck className="w-4 h-4" />
                 Confirm &amp; Audit
