@@ -224,6 +224,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
               <button
                 type="button"
                 onClick={handleStartAudit}
+                data-testid="audit-retry-btn"
                 className="px-5 py-2 bg-[#0D6E6E] text-white rounded-lg text-xs font-semibold hover:bg-[#0A5555]"
               >
                 Retry Audit

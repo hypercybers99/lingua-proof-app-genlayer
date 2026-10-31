@@ -13,11 +13,11 @@
     "type": "route",
     "name": "Translations (/translations)",
     "viewport": "1440px",
-    "critical": 1,
+    "critical": 0,
     "serious": 1,
     "moderate": 0,
     "minor": 0,
-    "total": 2
+    "total": 1
   },
   {
     "type": "route",
@@ -33,11 +33,11 @@
     "type": "route",
     "name": "Register (/register)",
     "viewport": "1440px",
-    "critical": 1,
+    "critical": 0,
     "serious": 1,
     "moderate": 0,
     "minor": 0,
-    "total": 2
+    "total": 1
   },
   {
     "type": "route",
@@ -89,9 +89,9 @@
     "type": "modal",
     "name": "Revise Modal",
     "viewport": "1440px",
-    "critical": 1,
+    "critical": 0,
     "serious": 0,
-    "total": 1
+    "total": 0
   },
   {
     "type": "route",
@@ -107,11 +107,11 @@
     "type": "route",
     "name": "Translations (/translations)",
     "viewport": "500px",
-    "critical": 1,
+    "critical": 0,
     "serious": 1,
     "moderate": 0,
     "minor": 0,
-    "total": 2
+    "total": 1
   },
   {
     "type": "route",
@@ -127,11 +127,11 @@
     "type": "route",
     "name": "Register (/register)",
     "viewport": "500px",
-    "critical": 1,
+    "critical": 0,
     "serious": 1,
     "moderate": 0,
     "minor": 0,
-    "total": 2
+    "total": 1
   },
   {
     "type": "route",
@@ -183,9 +183,9 @@
     "type": "modal",
     "name": "Revise Modal",
     "viewport": "500px",
-    "critical": 1,
+    "critical": 0,
     "serious": 0,
-    "total": 1
+    "total": 0
   },
   {
     "type": "route",
@@ -201,11 +201,11 @@
     "type": "route",
     "name": "Translations (/translations)",
     "viewport": "390px",
-    "critical": 1,
+    "critical": 0,
     "serious": 1,
     "moderate": 0,
     "minor": 0,
-    "total": 2
+    "total": 1
   },
   {
     "type": "route",
@@ -221,11 +221,11 @@
     "type": "route",
     "name": "Register (/register)",
     "viewport": "390px",
-    "critical": 1,
+    "critical": 0,
     "serious": 1,
     "moderate": 0,
     "minor": 0,
-    "total": 2
+    "total": 1
   },
   {
     "type": "route",
@@ -277,8 +277,8 @@
     "type": "modal",
     "name": "Revise Modal",
     "viewport": "390px",
-    "critical": 1,
+    "critical": 0,
     "serious": 0,
-    "total": 1
+    "total": 0
   }
 ]
