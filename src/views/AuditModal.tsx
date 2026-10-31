@@ -55,7 +55,6 @@ export const AuditModal: React.FC<AuditModalProps> = ({
       if (result.isApplied) {
         setAgreement(result.agreement);
         setStep("success");
-        onAuditComplete();
       } else {
         const parsed = parseRevertReason(result.error || "Execution failed");
         setErrorMessage(`${parsed.title}: ${parsed.message} (${parsed.actionable})`);
@@ -71,10 +70,14 @@ export const AuditModal: React.FC<AuditModalProps> = ({
   };
 
   const handleReset = () => {
+    const wasSuccess = step === "success";
     setStep("idle");
     setTxHash("");
     setErrorMessage("");
     onClose();
+    if (wasSuccess) {
+      onAuditComplete();
+    }
   };
 
   return (

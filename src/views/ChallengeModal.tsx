@@ -57,7 +57,6 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
       if (result.isApplied) {
         setAgreement(result.agreement);
         setStep("success");
-        onChallengeComplete();
       } else {
         const parsed = parseRevertReason(result.error || "Execution failed");
         setErrorMessage(`${parsed.title}: ${parsed.message} (${parsed.actionable})`);
@@ -71,11 +70,15 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
   };
 
   const handleReset = () => {
+    const wasSuccess = step === "success";
     setStep("idle");
     setTxHash("");
     setErrorMessage("");
     setReason("");
     onClose();
+    if (wasSuccess) {
+      onChallengeComplete();
+    }
   };
 
   return (

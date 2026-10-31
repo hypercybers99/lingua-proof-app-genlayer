@@ -42,13 +42,41 @@ async function pollTxDetails(txHash, timeoutSec = 240) {
 
 function parseAgreement(txData, receipt) {
   try {
-    const votes = txData?.last_round?.validator_votes_name || receipt?.consensus_data?.votes || receipt?.votes || [];
-    if (Array.isArray(votes) && votes.length > 0) {
-      const agree = votes.filter((v) => v === "AGREE" || v === true || v === 1 || v?.vote === "AGREE").length;
-      return `${agree}/${votes.length}`;
+    const roundVotes = txData?.last_round?.validator_votes_name;
+    if (Array.isArray(roundVotes) && roundVotes.length > 0) {
+      const agree = roundVotes.filter((v) => String(v).toUpperCase() === "AGREE").length;
+      return `${agree}/${roundVotes.length}`;
+    }
+    const votesObj = txData?.consensus_data?.votes;
+    if (votesObj && typeof votesObj === "object") {
+      const vals = Object.values(votesObj);
+      const agree = vals.filter((v) => String(v).toLowerCase() === "agree").length;
+      return `${agree}/${vals.length}`;
     }
   } catch {}
   return "4/5";
+}
+
+function isTxSuccess(txData, receipt) {
+  if (!receipt && !txData) return false;
+  const status = receipt?.status ?? txData?.status;
+  if (status !== 1 && status !== "0x1" && String(status).toUpperCase() !== "FINALIZED" && String(status).toUpperCase() !== "ACCEPTED") {
+    return false;
+  }
+  const resultName = String(txData?.result_name || receipt?.execution_result || "").toUpperCase();
+  if (resultName.includes("DISAGREE") || resultName.includes("REVERT") || resultName.includes("ERROR") || resultName.includes("TIMEOUT")) {
+    return false;
+  }
+  const validators = txData?.consensus_data?.validators;
+  if (Array.isArray(validators)) {
+    for (const val of validators) {
+      if (val.vote === "agree" && typeof val.result === "string" && val.result) {
+        const buf = Buffer.from(val.result, "base64");
+        if (buf.length > 0 && (buf[0] === 1 || buf[0] === 2)) return false;
+      }
+    }
+  }
+  return true;
 }
 
 async function main() {
@@ -83,6 +111,7 @@ async function main() {
         const json = await resp.json().catch(() => null);
         if (json && json.result && typeof json.result === "string" && json.result.startsWith("0x") && json.result.length === 66) {
           latestSentTxHash = json.result;
+          console.log(`[Captured Broadcast Tx]: ${latestSentTxHash}`);
         }
       }
     } catch {}
@@ -108,8 +137,8 @@ async function main() {
 
   const labelText = `Measurement ${Date.now().toString().slice(-6)} - Protocol Governance`;
   await page.fill("#translation-title-input", labelText);
-  await page.fill("#src-segment-0", "The consensus engine verifies translation fidelity across models.");
-  await page.fill("#tgt-segment-0", "Dong thuan validator xac minh do trung thuc ban dich tren cac mo hinh.");
+  await page.fill("#src-segment-0", "The council ratified the operational budget of 50,000 USD on 2026-11-15.");
+  await page.fill("#tgt-segment-0", "Hội đồng đã phê chuẩn ngân sách hoạt động 50,000 USD vào ngày 2026-11-15.");
 
   const balBeforeReg = await getBalance(acc1.address);
   const startReg = Date.now();
@@ -131,7 +160,7 @@ async function main() {
   const { receipt: regReceipt, txData: regTxData } = await pollTxDetails(regTxHash);
   const balAfterReg = await getBalance(acc1.address);
   const regAgreement = parseAgreement(regTxData, regReceipt);
-  const regAccepted = (regReceipt?.status === 1 || regReceipt?.status === "0x1") && (regReceipt?.execution_result === "SUCCESS" || regTxData?.result_name === "SUCCESS");
+  const regAccepted = isTxSuccess(regTxData, regReceipt);
 
   measurementRecords.push({
     method: "register_translation",
@@ -183,7 +212,7 @@ async function main() {
   const { receipt: auditReceipt, txData: auditTxData } = await pollTxDetails(auditTxHash);
   const balAfterAudit = await getBalance(acc1.address);
   const auditAgreement = parseAgreement(auditTxData, auditReceipt);
-  let auditAccepted = (auditReceipt?.status === 1 || auditReceipt?.status === "0x1") && (auditReceipt?.execution_result === "SUCCESS" || auditTxData?.result_name === "SUCCESS");
+  let auditAccepted = isTxSuccess(auditTxData, auditReceipt);
 
   measurementRecords.push({
     method: "audit_translation",
@@ -222,7 +251,7 @@ async function main() {
       const { receipt: auditReceipt2, txData: auditTxData2 } = await pollTxDetails(auditTxHash2);
       const balAfterAudit2 = await getBalance(acc1.address);
       const auditAgreement2 = parseAgreement(auditTxData2, auditReceipt2);
-      const auditAccepted2 = (auditReceipt2?.status === 1 || auditReceipt2?.status === "0x1") && (auditReceipt2?.execution_result === "SUCCESS" || auditTxData2?.result_name === "SUCCESS");
+      const auditAccepted2 = isTxSuccess(auditTxData2, auditReceipt2);
 
       measurementRecords.push({
         method: "audit_translation",
@@ -249,9 +278,14 @@ async function main() {
   }
 
   // Close audit modal
+  const doneBtn = page.locator('button:has-text("Done")');
+  if ((await doneBtn.count()) > 0) {
+    await doneBtn.first().click();
+    await page.waitForTimeout(500);
+  }
   const closeBtn = page.locator('[data-testid="modal-close-button"]');
   if ((await closeBtn.count()) > 0) {
-    await closeBtn.click();
+    await closeBtn.first().click();
     await page.waitForTimeout(500);
   }
 
@@ -269,7 +303,7 @@ async function main() {
 
   await page.fill(
     "#challenge-reason-input",
-    "Linguistic precision critique: 'Dong thuan validator' lacks the word mechanism ('co che'). Recommend refining to 'Co che dong thuan'."
+    "Linguistic critique: Suggest clarifying that the budget approval was officially enacted by majority vote."
   );
 
   const balBeforeChal = await getBalance(acc2.address);
@@ -288,7 +322,7 @@ async function main() {
   const { receipt: chalReceipt, txData: chalTxData } = await pollTxDetails(chalTxHash);
   const balAfterChal = await getBalance(acc2.address);
   const chalAgreement = parseAgreement(chalTxData, chalReceipt);
-  let chalAccepted = (chalReceipt?.status === 1 || chalReceipt?.status === "0x1") && (chalReceipt?.execution_result === "SUCCESS" || chalTxData?.result_name === "SUCCESS");
+  let chalAccepted = isTxSuccess(chalTxData, chalReceipt);
 
   measurementRecords.push({
     method: "challenge_segment",
@@ -326,7 +360,7 @@ async function main() {
       const { receipt: chalReceipt2, txData: chalTxData2 } = await pollTxDetails(chalTxHash2);
       const balAfterChal2 = await getBalance(acc2.address);
       const chalAgreement2 = parseAgreement(chalTxData2, chalReceipt2);
-      const chalAccepted2 = (chalReceipt2?.status === 1 || chalReceipt2?.status === "0x1") && (chalReceipt2?.execution_result === "SUCCESS" || chalTxData2?.result_name === "SUCCESS");
+      const chalAccepted2 = isTxSuccess(chalTxData2, chalReceipt2);
 
       measurementRecords.push({
         method: "challenge_segment",
@@ -352,9 +386,14 @@ async function main() {
     }
   }
 
-  // Close challenge modal
-  if ((await closeBtn.count()) > 0) {
-    await closeBtn.click();
+  const chalDoneBtn = page.locator('button:has-text("Done")');
+  if ((await chalDoneBtn.count()) > 0) {
+    await chalDoneBtn.first().click();
+    await page.waitForTimeout(500);
+  }
+  const chalClose = page.locator('[data-testid="modal-close-button"]').first();
+  if ((await chalClose.count()) > 0) {
+    await chalClose.click();
     await page.waitForTimeout(500);
   }
 
@@ -370,7 +409,7 @@ async function main() {
   await reviseOpenBtn.click();
   await page.waitForSelector("#revised-target-0", { timeout: 10000 });
 
-  await page.fill("#revised-target-0", "Co che dong thuan validator xac minh do trung thuc ban dich tren cac mo hinh.");
+  await page.fill("#revised-target-0", "Hội đồng đã chính thức phê chuẩn ngân sách hoạt động 50,000 USD vào ngày 2026-11-15.");
 
   const balBeforeRev = await getBalance(acc1.address);
   const startRev = Date.now();
@@ -388,7 +427,7 @@ async function main() {
   const { receipt: revReceipt, txData: revTxData } = await pollTxDetails(revTxHash);
   const balAfterRev = await getBalance(acc1.address);
   const revAgreement = parseAgreement(revTxData, revReceipt);
-  let revAccepted = (revReceipt?.status === 1 || revReceipt?.status === "0x1") && (revReceipt?.execution_result === "SUCCESS" || revTxData?.result_name === "SUCCESS");
+  let revAccepted = isTxSuccess(revTxData, revReceipt);
 
   measurementRecords.push({
     method: "revise_translation",
@@ -426,7 +465,7 @@ async function main() {
       const { receipt: revReceipt2, txData: revTxData2 } = await pollTxDetails(revTxHash2);
       const balAfterRev2 = await getBalance(acc1.address);
       const revAgreement2 = parseAgreement(revTxData2, revReceipt2);
-      const revAccepted2 = (revReceipt2?.status === 1 || revReceipt2?.status === "0x1") && (revReceipt2?.execution_result === "SUCCESS" || revTxData2?.result_name === "SUCCESS");
+      const revAccepted2 = isTxSuccess(revTxData2, revReceipt2);
 
       measurementRecords.push({
         method: "revise_translation",

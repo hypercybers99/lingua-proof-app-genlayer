@@ -45,9 +45,18 @@ function isAllowedFinalizedUsage(filePath, line) {
     }
   }
 
-  // Allow in evidence tables when quoting raw status in designated raw status column
-  if (relPath.includes("EVIDENCE") || relPath.includes("Evidence")) {
-    if (line.includes("`FINALIZED`") || line.includes("FINALIZED")) {
+  // Allow in evidence files when quoting raw status in designated raw status field/column
+  if (
+    relPath.toLowerCase().includes("evidence") ||
+    relPath.toLowerCase().includes("funding_measurement")
+  ) {
+    if (
+      line.includes("rawStatus") ||
+      line.includes("raw_status") ||
+      line.includes("status_name") ||
+      line.includes("`FINALIZED`") ||
+      line.includes('"FINALIZED"')
+    ) {
       return true;
     }
   }

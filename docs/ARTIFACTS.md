@@ -10,7 +10,7 @@ This document records the downloadable archive of bulk artifacts, on-chain evide
 - **File Size**: 911 KB
 - **SHA-256 Checksum**:
 ```
-274935ca0e1643ee5ac59fda24eb029c95e8ba873c8301a9aac514853c88bed3
+26a27dc03f3d9bf64c9025b8073fa7ff0189561239055e3c33584d49cb4e98c3
 ```
 
 ## Verification Command

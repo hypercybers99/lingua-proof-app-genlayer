@@ -130,12 +130,41 @@ export async function pollTransactionReceipt(
 
           if (rawStatus === "ACCEPTED" || rawStatus === "FINALIZED" || rawStatus === "REVERTED") {
             const votes = tx.consensus_data?.votes || {};
+            let vmError = tx.error || tx.genvm_result?.error_code;
+            if (!vmError && Array.isArray(tx.consensus_data?.validators)) {
+              for (const val of tx.consensus_data.validators) {
+                if (val.vote === "agree" && typeof val.result === "string" && val.result) {
+                  try {
+                    let firstByte = -1;
+                    let msg = "";
+                    if (typeof atob === "function") {
+                      const binary = atob(val.result);
+                      if (binary.length > 0) {
+                        firstByte = binary.charCodeAt(0);
+                        msg = binary.slice(1);
+                      }
+                    } else if (typeof Buffer !== "undefined") {
+                      const buf = Buffer.from(val.result, "base64");
+                      if (buf.length > 0) {
+                        firstByte = buf[0];
+                        msg = buf.slice(1).toString("utf8");
+                      }
+                    }
+                    if (firstByte === 1 || firstByte === 2) {
+                      vmError = msg || "Contract reverted with UserError";
+                      break;
+                    }
+                  } catch {}
+                }
+              }
+            }
+
             const outcome = deriveTerminalOutcome({
               rawStatus,
               resultName,
               executionResult: tx.execution_result,
               votes,
-              errorMessage: tx.error || tx.genvm_result?.error_code,
+              errorMessage: vmError,
             });
 
             return {
@@ -143,7 +172,7 @@ export async function pollTransactionReceipt(
               agreement: outcome.agreement,
               rawStatus,
               isApplied: outcome.isApplied,
-              error: tx.error || tx.genvm_result?.error_code,
+              error: vmError,
               txHash,
             };
           }

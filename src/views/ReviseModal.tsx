@@ -53,7 +53,8 @@ export const ReviseModal: React.FC<ReviseModalProps> = ({
 
     try {
       const client = getClient();
-      const pairsJson = JSON.stringify(pairs);
+      const cleanPairs = pairs.map((p) => ({ src: p.src, tgt: p.tgt }));
+      const pairsJson = JSON.stringify(cleanPairs);
 
       const hash = await client.writeContract({
         address: CHAIN_CONFIG.activeContract,
