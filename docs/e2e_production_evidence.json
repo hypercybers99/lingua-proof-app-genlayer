@@ -1,0 +1,216 @@
+{
+  "verifiedAt": "2026-10-31T15:02:08.161Z",
+  "productionUrl": "https://lingua-proof-app-genlayer.vercel.app",
+  "network": "GenLayer Studionet (Preview)",
+  "chainId": 61999,
+  "activeContract": "0xba67d808f2b7E533ec06655eB730Ef5B27623EBF",
+  "deployTxHash": "0x948a4f5ade97dff6a9a26f4fdc1a011e3873835566829711fb66f5ee5ce2cca4",
+  "translatorAddress": "0xD9Dda660B1516d00959eC0a8FA4d86299377F67a",
+  "challengerAddress": "0x99A198593d05E11E7EF008154aBb18eedc9D5955",
+  "zeroBalanceBlockVerified": true,
+  "transactions": [
+    {
+      "action": "register_translation",
+      "txHash": "0xe0ff9d6cf16896587d723cbdc610673347a2a6772f75bf2681a8e0ca70787f21",
+      "explorerUrl": "https://explorer-studio.genlayer.com/tx/0xe0ff9d6cf16896587d723cbdc610673347a2a6772f75bf2681a8e0ca70787f21",
+      "agreement": "3/5",
+      "latencySec": 7.1,
+      "terminalOutcome": "Accepted by validators (3/5 agreed) - state applied"
+    },
+    {
+      "action": "audit_translation",
+      "translationId": "f22eb2aaccbe",
+      "txHash": "0xcbca0f58c80a603fbb42bd73574fe16ca61e9f6b012eeb04afe800e24bb61f2f",
+      "explorerUrl": "https://explorer-studio.genlayer.com/tx/0xcbca0f58c80a603fbb42bd73574fe16ca61e9f6b012eeb04afe800e24bb61f2f",
+      "agreement": "3/5",
+      "latencySec": 34.5,
+      "terminalOutcome": "Accepted by validators (3/5 agreed) - state applied",
+      "score": 100,
+      "fidelityClass": "FAITHFUL"
+    },
+    {
+      "action": "challenge_segment",
+      "translationId": "f22eb2aaccbe",
+      "segmentIndex": 0,
+      "challenger": "0x99A198593d05E11E7EF008154aBb18eedc9D5955",
+      "txHash": "0x90c1bb9158d96aecd67bd97bfe688abf9b5c97100614007ee14c2615a496f587",
+      "explorerUrl": "https://explorer-studio.genlayer.com/tx/0x90c1bb9158d96aecd67bd97bfe688abf9b5c97100614007ee14c2615a496f587",
+      "agreement": "3/5",
+      "latencySec": 26.7,
+      "terminalOutcome": "Accepted by validators (3/5 agreed) - state applied"
+    },
+    {
+      "action": "revise_translation",
+      "parentId": "f22eb2aaccbe",
+      "childId": "f08f67baf7c7",
+      "txHash": "0xfac69db372a1bb43d905df903cb9968b777eeee10cc2b0482e6f4b4d99728238",
+      "explorerUrl": "https://explorer-studio.genlayer.com/tx/0xfac69db372a1bb43d905df903cb9968b777eeee10cc2b0482e6f4b4d99728238",
+      "agreement": "3/5",
+      "latencySec": 7.1,
+      "terminalOutcome": "Accepted by validators (3/5 agreed) - state applied"
+    },
+    {
+      "action": "audit_child_translation",
+      "translationId": "f08f67baf7c7",
+      "txHash": "0x7a1ff61cdeb2fa17277369ad7f408c5122ecf052f04883fb7310f8d99334d6d1",
+      "explorerUrl": "https://explorer-studio.genlayer.com/tx/0x7a1ff61cdeb2fa17277369ad7f408c5122ecf052f04883fb7310f8d99334d6d1",
+      "agreement": "3/5",
+      "latencySec": 20.2,
+      "terminalOutcome": "Accepted by validators (3/5 agreed) - state applied",
+      "score": 100,
+      "fidelityClass": "FAITHFUL"
+    }
+  ],
+  "readbacks": {
+    "lineage": [
+      {
+        "id": "f22eb2aaccbe",
+        "latest_class": "FAITHFUL",
+        "latest_score": 100,
+        "parent_id": "",
+        "registered_at": "2026-10-31T15:00:44Z",
+        "revision": 1,
+        "status": "AUDITED"
+      },
+      {
+        "id": "f08f67baf7c7",
+        "latest_class": "FAITHFUL",
+        "latest_score": 100,
+        "parent_id": "f22eb2aaccbe",
+        "registered_at": "2026-10-31T15:02:57Z",
+        "revision": 2,
+        "status": "AUDITED"
+      }
+    ],
+    "parentRecord": {
+      "audits_total": 1,
+      "challenges_total": 1,
+      "children": [
+        "f08f67baf7c7"
+      ],
+      "effective_class": "FAITHFUL",
+      "effective_score": 100,
+      "effective_segments": [
+        {
+          "anchor": "ANCHORS_OK",
+          "back_quote": "",
+          "effective_label": "PRESERVED",
+          "effective_severity": 0,
+          "has_superseding_challenge": false,
+          "i": 0,
+          "src_quote": ""
+        },
+        {
+          "anchor": "ANCHORS_OK",
+          "back_quote": "",
+          "effective_label": "PRESERVED",
+          "effective_severity": 0,
+          "has_superseding_challenge": false,
+          "i": 1,
+          "src_quote": ""
+        }
+      ],
+      "has_superseding_challenge": false,
+      "id": "f22eb2aaccbe",
+      "label": "Council Notice 3027",
+      "last_audit_ts": 1793458871,
+      "latest_audit_n": 1,
+      "latest_class": "FAITHFUL",
+      "latest_score": 100,
+      "pairs": [
+        {
+          "anchor": "ANCHORS_OK",
+          "anchor_detail": [],
+          "src": "The council ratified the operational budget of 50,000 USD on 2026-11-15.",
+          "tgt": "Hội đồng đã phê chuẩn ngân sách hoạt động 50,000 USD vào ngày 2026-11-15."
+        },
+        {
+          "anchor": "ANCHORS_OK",
+          "anchor_detail": [],
+          "src": "All treasury disbursements require 3 of 5 multisig signatures.",
+          "tgt": "Mọi khoản giải ngân từ kho bạc đều yêu cầu 3 trên 5 chữ ký multisig."
+        }
+      ],
+      "pairs_sha256": "4380f1cc74bded713f6fe1f492a833617806f235320d01c6d0fdf8380cfda23e",
+      "parent_id": "",
+      "registered_at": "2026-10-31T15:00:44Z",
+      "registered_ts": 1793458844,
+      "revision": 1,
+      "source_lang": "en",
+      "status": "AUDITED",
+      "target_lang": "vi",
+      "translator": "0xd9dda660b1516d00959ec0a8fa4d86299377f67a"
+    },
+    "childRecord": {
+      "audits_total": 1,
+      "challenges_total": 0,
+      "children": [],
+      "effective_class": "FAITHFUL",
+      "effective_score": 100,
+      "effective_segments": [
+        {
+          "anchor": "ANCHORS_OK",
+          "back_quote": "",
+          "effective_label": "PRESERVED",
+          "effective_severity": 0,
+          "has_superseding_challenge": false,
+          "i": 0,
+          "src_quote": ""
+        },
+        {
+          "anchor": "ANCHORS_OK",
+          "back_quote": "",
+          "effective_label": "PRESERVED",
+          "effective_severity": 0,
+          "has_superseding_challenge": false,
+          "i": 1,
+          "src_quote": ""
+        }
+      ],
+      "has_superseding_challenge": false,
+      "id": "f08f67baf7c7",
+      "label": "Council Notice 3027",
+      "last_audit_ts": 1793459000,
+      "latest_audit_n": 1,
+      "latest_class": "FAITHFUL",
+      "latest_score": 100,
+      "pairs": [
+        {
+          "anchor": "ANCHORS_OK",
+          "anchor_detail": [],
+          "src": "The council ratified the operational budget of 50,000 USD on 2026-11-15.",
+          "tgt": "Hội đồng đã chính thức phê chuẩn ngân sách hoạt động 50,000 USD vào ngày 2026-11-15."
+        },
+        {
+          "anchor": "ANCHORS_OK",
+          "anchor_detail": [],
+          "src": "All treasury disbursements require 3 of 5 multisig signatures.",
+          "tgt": "Mọi khoản giải ngân từ kho bạc đều yêu cầu 3 trên 5 chữ ký multisig."
+        }
+      ],
+      "pairs_sha256": "d61250114e1f120fa32845d3eb0f79ac742fd812b5685c28673f466e4aab0865",
+      "parent_id": "f22eb2aaccbe",
+      "registered_at": "2026-10-31T15:02:57Z",
+      "registered_ts": 1793458977,
+      "revision": 2,
+      "source_lang": "en",
+      "status": "AUDITED",
+      "target_lang": "vi",
+      "translator": "0xd9dda660b1516d00959ec0a8fa4d86299377f67a"
+    }
+  },
+  "screenshots": [
+    "docs/screens/01_unfunded_zero_balance_guard.png",
+    "docs/screens/02_registered_translation_detail.png",
+    "docs/screens/03_audited_detail.png",
+    "docs/screens/04_challenged_detail.png",
+    "docs/screens/05_child_revision_detail.png",
+    "docs/screens/06_child_audited_detail.png",
+    "docs/screens/07_methodology_rubric.png",
+    "docs/screens/08_evidence_scenarios.png",
+    "docs/screens/09_translations_explorer.png",
+    "docs/screens/10_landing_overview.png"
+  ],
+  "registeredTranslationId": "f22eb2aaccbe",
+  "childTranslationId": "f08f67baf7c7"
+}

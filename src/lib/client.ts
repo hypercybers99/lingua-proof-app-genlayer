@@ -1,55 +1,20 @@
+import { createClient, chains } from "genlayer-js";
 import { CHAIN_CONFIG } from "../config/chain";
-import { StoredTranslation, AuditRecord, ChallengeRecord } from "./types";
+import { StoredTranslation, AuditRecord, ChallengeRecord, FidelityClass } from "./types";
 
-interface RpcResponse<T> {
-  result?: T;
-  error?: {
-    code: number;
-    message: string;
-    data?: unknown;
-  };
-}
-
-async function rpcCall<T>(method: string, params: unknown[] = []): Promise<T> {
-  const resp = await fetch(CHAIN_CONFIG.rpcUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      jsonrpc: "2.0",
-      id: Date.now(),
-      method,
-      params,
-    }),
-  });
-
-  if (!resp.ok) {
-    throw new Error(`RPC HTTP error ${resp.status}: ${resp.statusText}`);
-  }
-
-  const json: RpcResponse<T> = await resp.json();
-  if (json.error) {
-    throw new Error(json.error.message || `RPC error code ${json.error.code}`);
-  }
-
-  return json.result as T;
-}
+const client = createClient({
+  chain: chains.studionet,
+});
 
 /**
- * Execute a read call to a contract view function via eth_call
+ * Execute a read call to a contract view function via genlayer-js readContract
  */
-export async function contractRead<T>(functionName: string, args: unknown[] = []): Promise<T> {
-  const calldata = JSON.stringify({
-    function_name: functionName,
+export async function contractRead<T>(functionName: string, args: any[] = []): Promise<T> {
+  const raw = await client.readContract({
+    address: CHAIN_CONFIG.activeContract,
+    functionName,
     args,
   });
-
-  const raw = await rpcCall<string>("eth_call", [
-    {
-      to: CHAIN_CONFIG.activeContract,
-      data: calldata,
-    },
-    "latest",
-  ]);
 
   if (raw === null || raw === undefined) {
     return null as unknown as T;
@@ -68,11 +33,21 @@ export async function fetchMeta(): Promise<{
   challenges_total: number;
   revisions_total: number;
 }> {
-  return await contractRead("get_meta", []);
+  const raw = await contractRead<any>("get_meta", []);
+  return {
+    translations_total: Number(raw?.translations_total ?? 0),
+    audits_total: Number(raw?.audits_total ?? 0),
+    challenges_total: Number(raw?.challenges_total ?? 0),
+    revisions_total: Number(raw?.revisions_total ?? 0),
+  };
 }
 
 export async function fetchTranslationIds(offset: number = 0, limit: number = 10): Promise<string[]> {
-  return await contractRead<string[]>("list_translation_ids", [offset, limit]);
+  const raw = await contractRead<any>("list_translation_ids", [offset, limit]);
+  if (!raw) return [];
+  if (Array.isArray(raw)) return raw;
+  if (Array.isArray(raw.ids)) return raw.ids;
+  return [];
 }
 
 export async function fetchTranslation(translationId: string): Promise<StoredTranslation> {
@@ -83,22 +58,27 @@ export async function fetchTranslation(translationId: string): Promise<StoredTra
 
   return {
     id: raw.id,
-    label: raw.label,
+    label: raw.label || `Translation ${raw.id.slice(0, 8)}`,
     translator: raw.translator,
     sourceLang: raw.source_lang,
     targetLang: raw.target_lang,
-    pairs: raw.pairs || [],
-    segmentCount: raw.seg_count ?? raw.pairs?.length ?? 0,
-    totalChars: raw.total_chars ?? 0,
+    pairs: (raw.pairs || []).map((p: any) => ({
+      src: p.src || "",
+      tgt: p.tgt || "",
+      anchor: p.anchor || "ANCHORS_OK",
+      anchorDetail: p.anchor_detail || [],
+    })),
+    segmentCount: raw.pairs?.length ?? 0,
+    totalChars: (raw.pairs || []).reduce((acc: number, p: any) => acc + (p.src?.length || 0) + (p.tgt?.length || 0), 0),
     registeredAt: raw.registered_at,
-    latestScore: raw.latest_score ?? null,
-    effectiveScore: raw.effective_score ?? raw.latest_score ?? null,
-    latestFidelityClass: raw.latest_class ?? null,
-    effectiveFidelityClass: raw.effective_class ?? raw.latest_class ?? null,
+    latestScore: raw.latest_score !== undefined && raw.latest_score >= 0 ? raw.latest_score : null,
+    effectiveScore: raw.effective_score !== undefined && raw.effective_score >= 0 ? raw.effective_score : null,
+    latestFidelityClass: (raw.latest_class || null) as FidelityClass | null,
+    effectiveFidelityClass: (raw.effective_class || null) as FidelityClass | null,
     parentId: raw.parent_id || null,
-    childId: raw.child_id || null,
-    auditCount: raw.audit_count ?? 0,
-    challengeCount: raw.challenge_count ?? 0,
+    childId: (raw.children && raw.children.length > 0) ? raw.children[0] : null,
+    auditCount: raw.audits_total ?? 0,
+    challengeCount: raw.challenges_total ?? 0,
   };
 }
 
@@ -107,23 +87,24 @@ export async function fetchAudits(
   offset: number = 0,
   limit: number = 20
 ): Promise<AuditRecord[]> {
-  const rawList = await contractRead<any[]>("get_audits", [translationId, offset, limit]);
+  const raw = await contractRead<any>("get_audits", [translationId, offset, limit]);
+  const rawList = Array.isArray(raw) ? raw : (raw?.items || []);
   if (!Array.isArray(rawList)) return [];
 
-  return rawList.map((r, i) => ({
-    auditId: `${translationId}-audit-${i}`,
+  return rawList.map((r: any, i: number) => ({
+    auditId: `${translationId}-audit-${r.n ?? i}`,
     translationId,
     auditor: r.auditor || "0x0000000000000000000000000000000000000000",
     score: r.score ?? 0,
-    fidelityClass: r.fidelity_class || "MATERIAL_LOSS",
-    severities: r.severities || [],
-    labels: r.labels || [],
-    backTranslations: r.back_translations || [],
-    quotes: r.quotes || [],
-    anchorResults: r.anchor_results || [],
-    auditedAt: r.audited_at || new Date().toISOString(),
+    fidelityClass: (r.class || "MATERIAL_LOSS") as FidelityClass,
+    severities: (r.segments || []).map((s: any) => s.severity ?? 0),
+    labels: (r.segments || []).map((s: any) => s.label || "PRESERVED"),
+    backTranslations: (r.segments || []).map((s: any) => s.back_translation || ""),
+    quotes: (r.segments || []).map((s: any) => ({ src: s.src_quote || "", back: s.back_quote || "" })),
+    anchorResults: (r.segments || []).map((s: any) => s.anchor || "ANCHORS_OK"),
+    auditedAt: r.at || new Date().toISOString(),
     txHash: r.tx_hash || "",
-    agreement: r.agreement || "3/5",
+    agreement: r.agreement || "4/5",
   }));
 }
 
@@ -132,23 +113,26 @@ export async function fetchChallenges(
   offset: number = 0,
   limit: number = 20
 ): Promise<ChallengeRecord[]> {
-  const rawList = await contractRead<any[]>("get_challenges", [translationId, offset, limit]);
+  const raw = await contractRead<any>("get_challenges", [translationId, offset, limit]);
+  const rawList = Array.isArray(raw) ? raw : (raw?.items || []);
   if (!Array.isArray(rawList)) return [];
 
-  return rawList.map((c, i) => ({
-    challengeId: `${translationId}-challenge-${i}`,
+  return rawList.map((c: any, i: number) => ({
+    challengeId: `${translationId}-challenge-${c.n ?? i}`,
     translationId,
     segmentIndex: c.segment_index ?? 0,
     challenger: c.challenger || "0x0000000000000000000000000000000000000000",
     reason: c.reason || "",
-    decision: c.decision || "DISMISSED",
-    challengerAgreed: c.decision === "UPHELD",
-    challengedAt: c.challenged_at || new Date().toISOString(),
+    decision: c.supersedes_latest ? ("UPHELD" as const) : ("DISMISSED" as const),
+    challengerAgreed: !!c.supersedes_latest,
+    challengedAt: c.at || new Date().toISOString(),
     txHash: c.tx_hash || "",
-    agreement: c.agreement || "3/5",
+    agreement: c.agreement || "4/5",
   }));
 }
 
-export async function fetchLineage(translationId: string): Promise<string[]> {
-  return await contractRead<string[]>("get_lineage", [translationId]);
+export async function fetchLineage(translationId: string): Promise<any[]> {
+  const raw = await contractRead<any>("get_lineage", [translationId]);
+  if (!raw) return [];
+  return Array.isArray(raw) ? raw : [];
 }

@@ -11,3 +11,6 @@ traces
 *.key
 *.pem
 *.zip
+.e2e_run_state.json
+
+.vercel
