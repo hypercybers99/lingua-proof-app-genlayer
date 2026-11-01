@@ -241,7 +241,7 @@ export const LandingView: React.FC = () => {
             <h2 className="font-serif font-bold text-lg text-[#111827] dark:text-[#F3F4F6]">
               Featured Notarized Records
             </h2>
-            <p className="text-xs text-slate-500">Translations audited by Studionet validators</p>
+            <p className="text-xs text-slate-600 dark:text-slate-300">Translations audited by Studionet validators</p>
           </div>
           <Link
             to="/translations"
@@ -271,7 +271,7 @@ export const LandingView: React.FC = () => {
                     >
                       {t.label}
                     </Link>
-                    <div className="text-xs text-slate-500 flex items-center gap-2 mt-0.5">
+                    <div className="text-xs text-slate-600 dark:text-slate-300 flex items-center gap-2 mt-0.5">
                       <span className="font-mono text-[11px] bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">
                         {t.id}
                       </span>

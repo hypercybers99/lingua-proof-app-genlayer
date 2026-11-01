@@ -44,7 +44,7 @@ export const EvidenceView: React.FC = () => {
 
       {/* Filter Tabs */}
       <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs font-semibold text-slate-500 mr-2 flex items-center gap-1">
+        <span className="text-xs font-semibold text-slate-600 dark:text-slate-300 mr-2 flex items-center gap-1">
           <Filter className="w-3.5 h-3.5" /> Filter:
         </span>
         {["ALL", "FAITHFUL", "MINOR_SHIFT", "MATERIAL_LOSS"].map((cat) => (

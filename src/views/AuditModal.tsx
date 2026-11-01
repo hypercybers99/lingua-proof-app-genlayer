@@ -142,7 +142,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                   ? "Submitting Audit Transaction..."
                   : "Validators Reaching Consensus..."}
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-600 dark:text-slate-300">
                 Elapsed: {elapsedSec}s • Typical audit latency: 25–42s
               </p>
             </div>
@@ -173,7 +173,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
               <h3 className="font-serif font-bold text-lg text-slate-900 dark:text-white">
                 Accepted by validators ({agreement || "3/5"} agreed) - state applied
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-600 dark:text-slate-300">
                 Consensus evaluation completed and notarized on {CHAIN_CONFIG.networkName}.
               </p>
             </div>

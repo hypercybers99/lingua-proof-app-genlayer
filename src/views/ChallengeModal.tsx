@@ -163,7 +163,7 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
                   ? "Submitting Challenge..."
                   : "Validators Evaluating Contestation..."}
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-600 dark:text-slate-300">
                 Re-evaluating segment #{segmentIndex + 1} under majority consensus
               </p>
             </div>
@@ -193,7 +193,7 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
               <h3 className="font-serif font-bold text-lg text-slate-900 dark:text-white">
                 Accepted by validators ({agreement || "3/5"} agreed) - state applied
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-600 dark:text-slate-300">
                 Challenge processed. Translation effective score overlay updated.
               </p>
             </div>

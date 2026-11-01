@@ -107,7 +107,7 @@ export const WalletView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleCopy(address, true)}
-                  className="p-1 rounded text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition"
+                  className="p-1 rounded text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-200 transition"
                   title="Copy Address"
                 >
                   {copiedAddr ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
@@ -133,7 +133,7 @@ export const WalletView: React.FC = () => {
         </div>
 
         {/* Network & Chain ID Badge */}
-        <div className="pt-4 border-t border-[#E5E7EB] dark:border-[#2D3339] flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
+        <div className="pt-4 border-t border-[#E5E7EB] dark:border-[#2D3339] flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-300">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
             <span>Connected: <strong>{CHAIN_CONFIG.networkName}</strong></span>
@@ -169,7 +169,7 @@ export const WalletView: React.FC = () => {
           <Key className="w-4 h-4 text-[#0D6E6E]" />
           Throwaway Private Key
         </h2>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-slate-600 dark:text-slate-300">
           You can copy your throwaway private key to reuse across test sessions or CLI tooling.
         </p>
 
@@ -181,7 +181,7 @@ export const WalletView: React.FC = () => {
             <button
               type="button"
               onClick={() => handleCopy(privateKey, false)}
-              className="p-1.5 rounded hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-500 shrink-0"
+              className="p-1.5 rounded hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 shrink-0"
               title="Copy Private Key"
             >
               {copiedKey ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
@@ -206,7 +206,7 @@ export const WalletView: React.FC = () => {
         <h2 className="text-base font-serif font-bold text-[#111827] dark:text-[#F3F4F6]">
           Import Custom Key
         </h2>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-slate-600 dark:text-slate-300">
           Enter an existing 64-hex private key to restore a previously funded Studionet account.
         </p>
 

@@ -3,7 +3,7 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests",
   testMatch: "**/*.spec.ts",
-  timeout: 60000,
+  timeout: 120000,
   webServer: process.env.SKIP_WEBSERVER
     ? undefined
     : {

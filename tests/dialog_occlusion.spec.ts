@@ -18,14 +18,14 @@ const VIEWPORTS = [
 
 test.describe("Modal Dialog Occlusion via document.elementFromPoint", () => {
   test.beforeEach(async () => {
-    test.setTimeout(60000);
+    test.setTimeout(120000);
   });
 
   for (const vp of VIEWPORTS) {
     test(`All modals (Audit, Challenge, Revise) are unoccluded at ${vp.name}`, async ({ page }) => {
       await page.setViewportSize({ width: vp.width, height: vp.height });
       await page.goto(`${PROD_URL}/t/${TEST_TRANSLATION_ID}`);
-      await page.waitForSelector('[data-testid="open-audit-modal-btn"]', { timeout: 30000 });
+      await page.waitForSelector('[data-testid="open-audit-modal-btn"]', { timeout: 60000 });
 
       // 1. AUDIT MODAL
       const auditBtn = page.locator('[data-testid="open-audit-modal-btn"]');

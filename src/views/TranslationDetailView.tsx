@@ -86,7 +86,7 @@ export const TranslationDetailView: React.FC = () => {
         <h2 className="text-xl font-serif font-bold text-slate-900 dark:text-white">
           RPC Network Communication Error
         </h2>
-        <p className="text-sm text-slate-500 max-w-md mx-auto">
+        <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto">
           {error}
         </p>
         <div className="flex justify-center gap-3">
@@ -120,7 +120,7 @@ export const TranslationDetailView: React.FC = () => {
         <h2 className="text-xl font-serif font-bold text-slate-900 dark:text-white">
           No Record Associated With This Identifier
         </h2>
-        <p className="text-sm text-slate-500 max-w-md mx-auto">
+        <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto">
           The requested identifier "{id}" returned an empty translation record from GenLayer Studionet (Preview).
         </p>
         <Link
@@ -194,7 +194,7 @@ export const TranslationDetailView: React.FC = () => {
             {translation.label}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
+          <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600 dark:text-slate-300">
             <span className="font-mono bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">
               ID: {translation.id}
             </span>
@@ -248,7 +248,7 @@ export const TranslationDetailView: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-right sm:text-right text-xs text-slate-500 space-y-1">
+          <div className="text-right sm:text-right text-xs text-slate-600 dark:text-slate-300 space-y-1">
             <div>
               <strong>Audits Conducted:</strong> {translation.auditCount}
             </div>
@@ -283,7 +283,7 @@ export const TranslationDetailView: React.FC = () => {
               {scoreBreakdown.score}
             </strong>
           </div>
-          <div className="text-[11px] text-slate-500 font-sans">
+          <div className="text-[11px] text-slate-600 dark:text-slate-300 font-sans">
             Preserved segments: {scoreBreakdown.preservedSegments} | Defective segments:{" "}
             {scoreBreakdown.defectiveSegments} | Unclear: {scoreBreakdown.unclearSegments}
           </div>
@@ -296,7 +296,7 @@ export const TranslationDetailView: React.FC = () => {
           <h2 className="text-xl font-serif font-bold text-[#111827] dark:text-[#F3F4F6]">
             Aligned Segments ({translation.pairs.length})
           </h2>
-          <span className="text-xs text-slate-500">
+          <span className="text-xs text-slate-600 dark:text-slate-300">
             Click &apos;View Quotes&apos; to inspect validator evidence
           </span>
         </div>
@@ -418,7 +418,7 @@ export const TranslationDetailView: React.FC = () => {
 
                     {seg.backTranslation && (
                       <div className="text-xs">
-                        <span className="font-semibold text-slate-500">
+                        <span className="font-semibold text-slate-600 dark:text-slate-300">
                           Blind Back-Translation:
                         </span>{" "}
                         <span className="font-serif italic text-slate-800 dark:text-slate-200">

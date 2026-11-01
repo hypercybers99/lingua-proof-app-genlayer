@@ -4,92 +4,33 @@
     "name": "Landing (/)",
     "viewport": "1440px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".uppercase",
-            "html": "<div class=\"text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400\">Contract Deployment Status</div>"
-          },
-          {
-            "target": ".space-y-1 > .text-slate-500.text-xs:nth-child(3)",
-            "html": "<div class=\"text-xs text-slate-500\">Deployed on GenLayer Studionet (Preview) (Chain ID 61999)</div>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Translations (/translations)",
     "viewport": "1440px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".font-mono > .dark\\:text-slate-400.text-slate-500",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".md\\:flex-row.gap-4.flex-col > .gap-2.items-center.flex > span:nth-child(4)",
-            "html": "<span>GenLayer Studionet (Preview) (Chain ID 61999)</span>"
-          },
-          {
-            "target": ".hover\\:text-\\[\\#0D6E6E\\].dark\\:hover\\:text-teal-300.underline:nth-child(1)",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/address/0xba67d808f2b7E533ec06655eB730Ef5B27623EBF\" target=\"_blank\" rel=\"noreferrer\" class=\"flex items-center gap-"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Detail (/t/f22eb2aaccbe)",
     "viewport": "1440px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 1,
     "minor": 0,
-    "total": 2,
+    "total": 1,
     "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".bg-\\[\\#F5F5F0\\] > .dark\\:text-slate-400.text-slate-500",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".md\\:flex-row > .gap-2.flex.items-center > span:nth-child(4)",
-            "html": "<span>GenLayer Studionet (Preview) (Chain ID 61999)</span>"
-          },
-          {
-            "target": ".hover\\:text-\\[\\#0D6E6E\\].dark\\:hover\\:text-teal-300.underline:nth-child(1)",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/address/0xba67d808f2b7E533ec06655eB730Ef5B27623EBF\" target=\"_blank\" rel=\"noreferrer\" class=\"flex items-center gap-"
-          }
-        ]
-      },
       {
         "id": "page-has-heading-one",
         "impact": "moderate",
@@ -108,92 +49,33 @@
     "name": "Register (/register)",
     "viewport": "1440px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".text-right",
-            "html": "<div class=\"text-[11px] text-slate-400 mt-1 text-right\">0 / 120 chars</div>"
-          },
-          {
-            "target": ".md\\:flex-row > .gap-2.items-center.flex > span:nth-child(4)",
-            "html": "<span>GenLayer Studionet (Preview) (Chain ID 61999)</span>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Methodology (/method)",
     "viewport": "1440px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".text-emerald-600.font-mono.font-bold",
-            "html": "<td class=\"py-2.5 px-4 font-mono font-bold text-emerald-600\">PRESERVED</td>"
-          },
-          {
-            "target": ".text-amber-600.font-mono.font-bold",
-            "html": "<td class=\"py-2.5 px-4 font-mono font-bold text-amber-600\">SHIFTED</td>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Evidence (/evidence)",
     "viewport": "1440px",
     "critical": 0,
-    "serious": 2,
+    "serious": 0,
     "moderate": 1,
     "minor": 0,
-    "total": 3,
+    "total": 1,
     "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .space-y-3 > .space-y-1.text-slate-500.text-xs > .gap-2.flex.items-center > .px-1\\.5.py-0\\.2.rounded",
-            "html": "<span class=\"font-mono text-[11px] px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800\">en -&gt; vi</span>"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .pt-3.border-t.space-y-2 > div > .block.mb-0\\.5.text-slate-400",
-            "html": "<span class=\"text-slate-400 block mb-0.5 font-sans font-semibold\">Registration Tx:</span>"
-          }
-        ]
-      },
       {
         "id": "heading-order",
         "impact": "moderate",
@@ -204,25 +86,6 @@
             "html": "<h3 class=\"font-serif font-bold text-base text-[#111827] dark:text-[#F3F4F6]\">Faithful Aligned Translation (en → vi)</h3>"
           }
         ]
-      },
-      {
-        "id": "link-name",
-        "impact": "serious",
-        "help": "Links must have discernible text",
-        "nodes": [
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(2) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(3) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          }
-        ]
       }
     ]
   },
@@ -231,31 +94,11 @@
     "name": "Wallet (/wallet)",
     "viewport": "1440px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .dark\\:text-slate-400.text-slate-500",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".uppercase",
-            "html": "<div class=\"text-xs font-semibold uppercase tracking-wider text-slate-400\">Active Wallet Address</div>"
-          },
-          {
-            "target": ".text-slate-500.font-semibold.text-xs",
-            "html": "<div class=\"text-xs font-semibold text-slate-500\">Available Balance</div>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "modal",
@@ -271,25 +114,9 @@
     "name": "Challenge Modal",
     "viewport": "1440px",
     "critical": 0,
-    "serious": 1,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".text-\\[11px\\].text-slate-400.justify-between > span:nth-child(1)",
-            "html": "<span>Min 10 chars, Max 200 chars</span>"
-          },
-          {
-            "target": ".text-rose-500",
-            "html": "<span class=\"text-rose-500 font-semibold\">0 / 200</span>"
-          }
-        ]
-      }
-    ]
+    "serious": 0,
+    "total": 0,
+    "violations": []
   },
   {
     "type": "modal",
@@ -305,92 +132,33 @@
     "name": "Landing (/)",
     "viewport": "500px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".uppercase",
-            "html": "<div class=\"text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400\">Contract Deployment Status</div>"
-          },
-          {
-            "target": ".space-y-1 > .text-slate-500.text-xs:nth-child(3)",
-            "html": "<div class=\"text-xs text-slate-500\">Deployed on GenLayer Studionet (Preview) (Chain ID 61999)</div>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Translations (/translations)",
     "viewport": "500px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".font-mono > .dark\\:text-slate-400.text-slate-500",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".md\\:flex-row.gap-4.flex-col > .gap-2.items-center.flex > span:nth-child(4)",
-            "html": "<span>GenLayer Studionet (Preview) (Chain ID 61999)</span>"
-          },
-          {
-            "target": ".hover\\:text-\\[\\#0D6E6E\\].dark\\:hover\\:text-teal-300.underline:nth-child(1)",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/address/0xba67d808f2b7E533ec06655eB730Ef5B27623EBF\" target=\"_blank\" rel=\"noreferrer\" class=\"flex items-center gap-"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Detail (/t/f22eb2aaccbe)",
     "viewport": "500px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 1,
     "minor": 0,
-    "total": 2,
+    "total": 1,
     "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".bg-\\[\\#F5F5F0\\] > .dark\\:text-slate-400.text-slate-500",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".md\\:flex-row > .gap-2.flex.items-center > span:nth-child(4)",
-            "html": "<span>GenLayer Studionet (Preview) (Chain ID 61999)</span>"
-          },
-          {
-            "target": ".hover\\:text-\\[\\#0D6E6E\\].dark\\:hover\\:text-teal-300.underline:nth-child(1)",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/address/0xba67d808f2b7E533ec06655eB730Ef5B27623EBF\" target=\"_blank\" rel=\"noreferrer\" class=\"flex items-center gap-"
-          }
-        ]
-      },
       {
         "id": "page-has-heading-one",
         "impact": "moderate",
@@ -409,92 +177,33 @@
     "name": "Register (/register)",
     "viewport": "500px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".text-right",
-            "html": "<div class=\"text-[11px] text-slate-400 mt-1 text-right\">0 / 120 chars</div>"
-          },
-          {
-            "target": ".md\\:flex-row > .gap-2.items-center.flex > span:nth-child(4)",
-            "html": "<span>GenLayer Studionet (Preview) (Chain ID 61999)</span>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Methodology (/method)",
     "viewport": "500px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".text-emerald-600.font-mono.font-bold",
-            "html": "<td class=\"py-2.5 px-4 font-mono font-bold text-emerald-600\">PRESERVED</td>"
-          },
-          {
-            "target": ".text-amber-600.font-mono.font-bold",
-            "html": "<td class=\"py-2.5 px-4 font-mono font-bold text-amber-600\">SHIFTED</td>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Evidence (/evidence)",
     "viewport": "500px",
     "critical": 0,
-    "serious": 2,
+    "serious": 0,
     "moderate": 1,
     "minor": 0,
-    "total": 3,
+    "total": 1,
     "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .space-y-3 > .space-y-1.text-slate-500.text-xs > .gap-2.flex.items-center > .px-1\\.5.py-0\\.2.rounded",
-            "html": "<span class=\"font-mono text-[11px] px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800\">en -&gt; vi</span>"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .pt-3.border-t.space-y-2 > div > .block.mb-0\\.5.text-slate-400",
-            "html": "<span class=\"text-slate-400 block mb-0.5 font-sans font-semibold\">Registration Tx:</span>"
-          }
-        ]
-      },
       {
         "id": "heading-order",
         "impact": "moderate",
@@ -505,25 +214,6 @@
             "html": "<h3 class=\"font-serif font-bold text-base text-[#111827] dark:text-[#F3F4F6]\">Faithful Aligned Translation (en → vi)</h3>"
           }
         ]
-      },
-      {
-        "id": "link-name",
-        "impact": "serious",
-        "help": "Links must have discernible text",
-        "nodes": [
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(2) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(3) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          }
-        ]
       }
     ]
   },
@@ -532,31 +222,11 @@
     "name": "Wallet (/wallet)",
     "viewport": "500px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .dark\\:text-slate-400.text-slate-500",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".uppercase",
-            "html": "<div class=\"text-xs font-semibold uppercase tracking-wider text-slate-400\">Active Wallet Address</div>"
-          },
-          {
-            "target": ".text-slate-500.font-semibold.text-xs",
-            "html": "<div class=\"text-xs font-semibold text-slate-500\">Available Balance</div>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "modal",
@@ -572,25 +242,9 @@
     "name": "Challenge Modal",
     "viewport": "500px",
     "critical": 0,
-    "serious": 1,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".text-\\[11px\\].text-slate-400.justify-between > span:nth-child(1)",
-            "html": "<span>Min 10 chars, Max 200 chars</span>"
-          },
-          {
-            "target": ".text-rose-500",
-            "html": "<span class=\"text-rose-500 font-semibold\">0 / 200</span>"
-          }
-        ]
-      }
-    ]
+    "serious": 0,
+    "total": 0,
+    "violations": []
   },
   {
     "type": "modal",
@@ -606,92 +260,33 @@
     "name": "Landing (/)",
     "viewport": "390px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".uppercase",
-            "html": "<div class=\"text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400\">Contract Deployment Status</div>"
-          },
-          {
-            "target": ".space-y-1 > .text-slate-500.text-xs:nth-child(3)",
-            "html": "<div class=\"text-xs text-slate-500\">Deployed on GenLayer Studionet (Preview) (Chain ID 61999)</div>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Translations (/translations)",
     "viewport": "390px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".font-mono > .dark\\:text-slate-400.text-slate-500",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".md\\:flex-row.gap-4.flex-col > .gap-2.items-center.flex > span:nth-child(4)",
-            "html": "<span>GenLayer Studionet (Preview) (Chain ID 61999)</span>"
-          },
-          {
-            "target": ".hover\\:text-\\[\\#0D6E6E\\].dark\\:hover\\:text-teal-300.underline:nth-child(1)",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/address/0xba67d808f2b7E533ec06655eB730Ef5B27623EBF\" target=\"_blank\" rel=\"noreferrer\" class=\"flex items-center gap-"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Detail (/t/f22eb2aaccbe)",
     "viewport": "390px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 1,
     "minor": 0,
-    "total": 2,
+    "total": 1,
     "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".bg-\\[\\#F5F5F0\\] > .dark\\:text-slate-400.text-slate-500",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".md\\:flex-row > .gap-2.flex.items-center > span:nth-child(4)",
-            "html": "<span>GenLayer Studionet (Preview) (Chain ID 61999)</span>"
-          },
-          {
-            "target": ".hover\\:text-\\[\\#0D6E6E\\].dark\\:hover\\:text-teal-300.underline:nth-child(1)",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/address/0xba67d808f2b7E533ec06655eB730Ef5B27623EBF\" target=\"_blank\" rel=\"noreferrer\" class=\"flex items-center gap-"
-          }
-        ]
-      },
       {
         "id": "page-has-heading-one",
         "impact": "moderate",
@@ -710,103 +305,33 @@
     "name": "Register (/register)",
     "viewport": "390px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".text-right",
-            "html": "<div class=\"text-[11px] text-slate-400 mt-1 text-right\">0 / 120 chars</div>"
-          },
-          {
-            "target": ".md\\:flex-row > .gap-2.items-center.flex > span:nth-child(4)",
-            "html": "<span>GenLayer Studionet (Preview) (Chain ID 61999)</span>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Methodology (/method)",
     "viewport": "390px",
     "critical": 0,
-    "serious": 2,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 2,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".text-emerald-600.font-mono.font-bold",
-            "html": "<td class=\"py-2.5 px-4 font-mono font-bold text-emerald-600\">PRESERVED</td>"
-          },
-          {
-            "target": ".text-amber-600.font-mono.font-bold",
-            "html": "<td class=\"py-2.5 px-4 font-mono font-bold text-amber-600\">SHIFTED</td>"
-          }
-        ]
-      },
-      {
-        "id": "scrollable-region-focusable",
-        "impact": "serious",
-        "help": "Scrollable region must have keyboard access",
-        "nodes": [
-          {
-            "target": ".overflow-x-auto",
-            "html": "<div class=\"overflow-x-auto rounded-xl border border-[#E5E7EB] dark:border-[#2D3339] bg-white dark:bg-[#181C20] shadow-sm\">"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Evidence (/evidence)",
     "viewport": "390px",
     "critical": 0,
-    "serious": 2,
+    "serious": 0,
     "moderate": 1,
     "minor": 0,
-    "total": 3,
+    "total": 1,
     "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .text-slate-500.dark\\:text-slate-400",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .space-y-3 > .space-y-1.text-slate-500.text-xs > .gap-2.flex.items-center > .px-1\\.5.py-0\\.2.rounded",
-            "html": "<span class=\"font-mono text-[11px] px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800\">en -&gt; vi</span>"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .pt-3.border-t.space-y-2 > div > .block.mb-0\\.5.text-slate-400",
-            "html": "<span class=\"text-slate-400 block mb-0.5 font-sans font-semibold\">Registration Tx:</span>"
-          }
-        ]
-      },
       {
         "id": "heading-order",
         "impact": "moderate",
@@ -817,25 +342,6 @@
             "html": "<h3 class=\"font-serif font-bold text-base text-[#111827] dark:text-[#F3F4F6]\">Faithful Aligned Translation (en → vi)</h3>"
           }
         ]
-      },
-      {
-        "id": "link-name",
-        "impact": "serious",
-        "help": "Links must have discernible text",
-        "nodes": [
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(2) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(3) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          }
-        ]
       }
     ]
   },
@@ -844,31 +350,11 @@
     "name": "Wallet (/wallet)",
     "viewport": "390px",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".hover\\:border-teal-500\\/50 > .dark\\:text-slate-400.text-slate-500",
-            "html": "<span class=\"text-slate-500 dark:text-slate-400\">0xB27E...AB1e</span>"
-          },
-          {
-            "target": ".uppercase",
-            "html": "<div class=\"text-xs font-semibold uppercase tracking-wider text-slate-400\">Active Wallet Address</div>"
-          },
-          {
-            "target": ".text-slate-500.font-semibold.text-xs",
-            "html": "<div class=\"text-xs font-semibold text-slate-500\">Available Balance</div>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "modal",
@@ -884,25 +370,9 @@
     "name": "Challenge Modal",
     "viewport": "390px",
     "critical": 0,
-    "serious": 1,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".text-\\[11px\\].text-slate-400.justify-between > span:nth-child(1)",
-            "html": "<span>Min 10 chars, Max 200 chars</span>"
-          },
-          {
-            "target": ".text-rose-500",
-            "html": "<span class=\"text-rose-500 font-semibold\">0 / 200</span>"
-          }
-        ]
-      }
-    ]
+    "serious": 0,
+    "total": 0,
+    "violations": []
   },
   {
     "type": "modal",
@@ -929,16 +399,8 @@
         "help": "Elements must meet minimum color contrast ratio thresholds",
         "nodes": [
           {
-            "target": ".space-y-1 > .text-slate-500.text-xs:nth-child(3)",
-            "html": "<div class=\"text-xs text-slate-500\">Deployed on GenLayer Studionet (Preview) (Chain ID 61999)</div>"
-          },
-          {
-            "target": ".justify-between.flex.items-center > div > p",
+            "target": ".justify-between.flex.items-center > div > .text-slate-500",
             "html": "<p class=\"text-xs text-slate-500\">Translations audited by Studionet validators</p>"
-          },
-          {
-            "target": ".pt-4 > p",
-            "html": "<p>"
           }
         ]
       }
@@ -960,16 +422,8 @@
         "help": "Elements must meet minimum color contrast ratio thresholds",
         "nodes": [
           {
-            "target": ".p-4.border-t.justify-between > div:nth-child(1)",
+            "target": ".p-4.border-t.text-slate-500 > div:nth-child(1)",
             "html": "<div>Showing 0 to 0 of 0 translations</div>"
-          },
-          {
-            "target": ".pt-4 > p",
-            "html": "<p>"
-          },
-          {
-            "target": "strong",
-            "html": "<strong>Transparency Notice:</strong>"
           }
         ]
       }
@@ -980,26 +434,11 @@
     "name": "Detail (/t/f22eb2aaccbe)",
     "viewport": "1440px-dark",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 1,
     "minor": 0,
-    "total": 2,
+    "total": 1,
     "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": "p",
-            "html": "<p>"
-          },
-          {
-            "target": "strong",
-            "html": "<strong>Transparency Notice:</strong>"
-          }
-        ]
-      },
       {
         "id": "page-has-heading-one",
         "impact": "moderate",
@@ -1031,14 +470,6 @@
           {
             "target": ".justify-between.items-center.flex > div > p",
             "html": "<p class=\"text-xs text-slate-500\">Each pair represents one aligned sentence or clause. Maximum 12 pairs per registration.</p>"
-          },
-          {
-            "target": ".dark\\:border-\\[\\#2D3339\\]\\/60 > p",
-            "html": "<p>"
-          },
-          {
-            "target": "strong",
-            "html": "<strong>Transparency Notice:</strong>"
           }
         ]
       }
@@ -1049,41 +480,21 @@
     "name": "Methodology (/method)",
     "viewport": "1440px-dark",
     "critical": 0,
-    "serious": 1,
+    "serious": 0,
     "moderate": 0,
     "minor": 0,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": "tr:nth-child(4) > .text-rose-600.font-mono.font-bold",
-            "html": "<td class=\"py-2.5 px-4 font-mono font-bold text-rose-600\">OMITTED</td>"
-          },
-          {
-            "target": "tr:nth-child(5) > .text-rose-600.font-mono.font-bold",
-            "html": "<td class=\"py-2.5 px-4 font-mono font-bold text-rose-600\">ADDED</td>"
-          },
-          {
-            "target": ".text-purple-600",
-            "html": "<td class=\"py-2.5 px-4 font-mono font-bold text-purple-600\">ANCHOR_ALTERED</td>"
-          }
-        ]
-      }
-    ]
+    "total": 0,
+    "violations": []
   },
   {
     "type": "route",
     "name": "Evidence (/evidence)",
     "viewport": "1440px-dark",
     "critical": 0,
-    "serious": 2,
+    "serious": 1,
     "moderate": 1,
     "minor": 0,
-    "total": 3,
+    "total": 2,
     "violations": [
       {
         "id": "color-contrast",
@@ -1093,14 +504,6 @@
           {
             "target": ".mr-2",
             "html": "<span class=\"text-xs font-semibold text-slate-500 mr-2 flex items-center gap-1\">"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .space-y-3 > .space-y-1.text-slate-500.text-xs > .gap-2.flex.items-center > .px-1\\.5.py-0\\.2.rounded",
-            "html": "<span class=\"font-mono text-[11px] px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800\">en -&gt; vi</span>"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .space-y-3 > .space-y-1.text-slate-500.text-xs > .gap-2.flex.items-center > span:nth-child(3)",
-            "html": "<span>2 segments</span>"
           }
         ]
       },
@@ -1112,25 +515,6 @@
           {
             "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .space-y-3 > div:nth-child(2) > h3",
             "html": "<h3 class=\"font-serif font-bold text-base text-[#111827] dark:text-[#F3F4F6]\">Faithful Aligned Translation (en → vi)</h3>"
-          }
-        ]
-      },
-      {
-        "id": "link-name",
-        "impact": "serious",
-        "help": "Links must have discernible text",
-        "nodes": [
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(1) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(2) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
-          },
-          {
-            "target": ".p-5.rounded-xl.shadow-sm:nth-child(3) > .pt-3.border-t.space-y-2 > div > .dark\\:text-teal-400.hover\\:underline.break-all",
-            "html": "<a href=\"https://explorer-studio.genlayer.com/tx/\" target=\"_blank\" rel=\"noreferrer\" class=\"text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-fl"
           }
         ]
       }
@@ -1152,16 +536,16 @@
         "help": "Elements must meet minimum color contrast ratio thresholds",
         "nodes": [
           {
-            "target": ".text-slate-500.font-semibold.text-xs",
-            "html": "<div class=\"text-xs font-semibold text-slate-500\">Available Balance</div>"
-          },
-          {
             "target": ".pt-4.flex-wrap.border-t > .gap-2.items-center.flex > span:nth-child(2)",
             "html": "<span>Connected: <strong>GenLayer Studionet (Preview)</strong></span>"
           },
           {
             "target": "span:nth-child(2) > strong",
             "html": "<strong>GenLayer Studionet (Preview)</strong>"
+          },
+          {
+            "target": ".pt-4.flex-wrap.border-t > .gap-2.items-center.flex > span:nth-child(3)",
+            "html": "<span>(Chain ID 61999)</span>"
           }
         ]
       }
@@ -1190,24 +574,8 @@
     "name": "Revise Modal",
     "viewport": "1440px-dark",
     "critical": 0,
-    "serious": 1,
-    "total": 1,
-    "violations": [
-      {
-        "id": "color-contrast",
-        "impact": "serious",
-        "help": "Elements must meet minimum color contrast ratio thresholds",
-        "nodes": [
-          {
-            "target": ".border-slate-200.dark\\:border-slate-800.dark\\:bg-\\[\\#121518\\]:nth-child(1) > .text-\\[11px\\].justify-between.text-slate-500 > span",
-            "html": "<span>Segment #1</span>"
-          },
-          {
-            "target": ".border-slate-200.dark\\:border-slate-800.dark\\:bg-\\[\\#121518\\]:nth-child(2) > .text-\\[11px\\].justify-between.text-slate-500 > span",
-            "html": "<span>Segment #2</span>"
-          }
-        ]
-      }
-    ]
+    "serious": 0,
+    "total": 0,
+    "violations": []
   }
 ]

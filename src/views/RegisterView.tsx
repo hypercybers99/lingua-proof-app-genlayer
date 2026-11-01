@@ -239,7 +239,7 @@ export const RegisterView: React.FC = () => {
                 <h2 className="text-base font-serif font-bold text-[#111827] dark:text-[#F3F4F6]">
                   2. Aligned Segment Pairs ({pairs.length}/12)
                 </h2>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-600 dark:text-slate-300">
                   Each pair represents one aligned sentence or clause. Maximum 12 pairs per registration.
                 </p>
               </div>
@@ -313,7 +313,7 @@ export const RegisterView: React.FC = () => {
                     {/* Real-time Anchor Check Pill */}
                     {summary && (summary.sAnchors.length > 0 || summary.tAnchors.length > 0) && (
                       <div className="pt-1 text-[11px] flex flex-wrap items-center gap-2">
-                        <span className="font-semibold text-slate-500">
+                        <span className="font-semibold text-slate-600 dark:text-slate-300">
                           Pre-flight Anchors:
                         </span>
                         <span
@@ -376,7 +376,7 @@ export const RegisterView: React.FC = () => {
               ? "Submitting Registration Transaction..."
               : "Validators Reaching Consensus..."}
           </h2>
-          <p className="text-xs text-slate-500 max-w-md mx-auto">
+          <p className="text-xs text-slate-600 dark:text-slate-300 max-w-md mx-auto">
             Your translation is being registered on {CHAIN_CONFIG.networkName}. Polling for majority validator agreement...
           </p>
 
@@ -404,7 +404,7 @@ export const RegisterView: React.FC = () => {
           <h2 className="text-2xl font-serif font-bold text-slate-900 dark:text-white">
             Accepted by validators ({agreement || "3/5"} agreed) - state applied
           </h2>
-          <p className="text-sm text-slate-500 max-w-md mx-auto">
+          <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto">
             Your translation has been successfully registered and assigned an on-chain ID.
           </p>
 

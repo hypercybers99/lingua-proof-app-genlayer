@@ -223,7 +223,7 @@ export const ReviseModal: React.FC<ReviseModalProps> = ({
                   ? "Submitting Revision Transaction..."
                   : "Validators Confirming State..."}
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-600 dark:text-slate-300">
                 Registering child translation linked to parent {parentTranslation.id}
               </p>
             </div>
@@ -253,7 +253,7 @@ export const ReviseModal: React.FC<ReviseModalProps> = ({
               <h3 className="font-serif font-bold text-lg text-slate-900 dark:text-white">
                 Accepted by validators ({agreement || "3/5"} agreed) - state applied
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-600 dark:text-slate-300">
                 Revised translation successfully registered with linked parent lineage.
               </p>
             </div>

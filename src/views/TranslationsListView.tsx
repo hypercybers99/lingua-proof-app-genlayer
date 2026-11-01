@@ -204,7 +204,7 @@ export const TranslationsListView: React.FC = () => {
             <h3 className="text-base font-serif font-bold text-slate-900 dark:text-white">
               RPC Network Communication Error
             </h3>
-            <p className="text-sm text-slate-500 max-w-md mx-auto">
+            <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto">
               {error}
             </p>
             <button
@@ -279,7 +279,7 @@ export const TranslationsListView: React.FC = () => {
                           <span className="text-xs text-slate-400 italic">Unaudited</span>
                         )}
                       </td>
-                      <td className="py-3.5 px-4 text-xs text-slate-500">
+                      <td className="py-3.5 px-4 text-xs text-slate-600 dark:text-slate-300">
                         {t.parentId ? (
                           <Link
                             to={`/t/${t.parentId}`}
@@ -315,7 +315,7 @@ export const TranslationsListView: React.FC = () => {
         )}
 
         {/* Pagination Controls */}
-        <div className="p-4 border-t border-[#E5E7EB] dark:border-[#2D3339] flex items-center justify-between text-xs text-slate-500">
+        <div className="p-4 border-t border-[#E5E7EB] dark:border-[#2D3339] flex items-center justify-between text-xs text-slate-600 dark:text-slate-300">
           <div>
             Showing {Math.min(filtered.length, page * pageSize + 1)} to{" "}
             {Math.min(filtered.length, (page + 1) * pageSize)} of {filtered.length} translations
