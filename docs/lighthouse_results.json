@@ -1,0 +1,100 @@
+[
+  {
+    "route": "Landing",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/",
+    "device": "desktop",
+    "accessibilityScore": 100,
+    "timestamp": "2026-11-01T04:40:53.798Z"
+  },
+  {
+    "route": "Translations",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/translations",
+    "device": "desktop",
+    "accessibilityScore": 96,
+    "timestamp": "2026-11-01T04:41:22.080Z"
+  },
+  {
+    "route": "Detail",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/t/f22eb2aaccbe",
+    "device": "desktop",
+    "accessibilityScore": 95,
+    "timestamp": "2026-11-01T04:42:13.978Z"
+  },
+  {
+    "route": "Register",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/register",
+    "device": "desktop",
+    "accessibilityScore": 100,
+    "timestamp": "2026-11-01T04:42:33.492Z"
+  },
+  {
+    "route": "Methodology",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/method",
+    "device": "desktop",
+    "accessibilityScore": 100,
+    "timestamp": "2026-11-01T04:42:49.237Z"
+  },
+  {
+    "route": "Evidence",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/evidence",
+    "device": "desktop",
+    "accessibilityScore": 98,
+    "timestamp": "2026-11-01T04:43:04.385Z"
+  },
+  {
+    "route": "Wallet",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/wallet",
+    "device": "desktop",
+    "accessibilityScore": 100,
+    "timestamp": "2026-11-01T04:43:19.819Z"
+  },
+  {
+    "route": "Landing",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/",
+    "device": "mobile",
+    "accessibilityScore": 100,
+    "timestamp": "2026-11-01T04:43:35.175Z"
+  },
+  {
+    "route": "Translations",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/translations",
+    "device": "mobile",
+    "accessibilityScore": 96,
+    "timestamp": "2026-11-01T04:44:00.519Z"
+  },
+  {
+    "route": "Detail",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/t/f22eb2aaccbe",
+    "device": "mobile",
+    "accessibilityScore": 95,
+    "timestamp": "2026-11-01T04:44:52.104Z"
+  },
+  {
+    "route": "Register",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/register",
+    "device": "mobile",
+    "accessibilityScore": 100,
+    "timestamp": "2026-11-01T04:45:09.681Z"
+  },
+  {
+    "route": "Methodology",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/method",
+    "device": "mobile",
+    "accessibilityScore": 100,
+    "timestamp": "2026-11-01T04:45:23.692Z"
+  },
+  {
+    "route": "Evidence",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/evidence",
+    "device": "mobile",
+    "accessibilityScore": 98,
+    "timestamp": "2026-11-01T04:45:38.063Z"
+  },
+  {
+    "route": "Wallet",
+    "url": "https://lingua-proof-app-genlayer.vercel.app/wallet",
+    "device": "mobile",
+    "accessibilityScore": 100,
+    "timestamp": "2026-11-01T04:45:52.599Z"
+  }
+]
