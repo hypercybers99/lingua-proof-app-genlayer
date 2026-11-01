@@ -143,16 +143,16 @@ export const ReviseModal: React.FC<ReviseModalProps> = ({
                         : "border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121518]"
                     }`}
                   >
-                    <div className="flex items-center justify-between font-mono text-[11px] text-slate-500">
+                    <div className="flex items-center justify-between font-mono text-[11px] text-slate-700 dark:text-slate-300">
                       <span>Segment #{idx + 1}</span>
                       {isChanged && (
-                        <span className="text-teal-600 dark:text-teal-400 font-semibold font-sans">
+                        <span className="text-teal-700 dark:text-teal-300 font-semibold font-sans">
                           Modified
                         </span>
                       )}
                     </div>
 
-                    <div className="text-slate-600 dark:text-slate-400">
+                    <div className="text-slate-700 dark:text-slate-300">
                       <strong>Source:</strong> {p.src}
                     </div>
 
@@ -180,7 +180,7 @@ export const ReviseModal: React.FC<ReviseModalProps> = ({
                 data-testid="revise-funding-notice"
                 className="p-3 rounded-lg bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-200 text-xs"
               >
-                <span className="font-semibold">Informational:</span> Faucet funding is optional on GenLayer Studionet (Preview); transactions succeed with 0 GEN balance. (Studionet Preview behavior may change).
+                <span className="font-semibold">Informational:</span> Faucet funding is optional on GenLayer Studionet (Preview); measured on 2026-10-31 on 4 transactions with 2 unfunded keys; Studionet Preview behavior may change.
               </div>
             )}
 

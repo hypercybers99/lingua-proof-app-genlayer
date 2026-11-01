@@ -114,8 +114,8 @@ export const EVIDENCE_SCENARIOS: EvidenceScenario[] = [
   },
   {
     "id": "E8",
-    "title": "Targeted Segment Challenges (E1 Faithful & E4 Distortion)",
-    "description": "Challenged faithful E1 (upheld original) and contested distorted E4 with corrected prohibition.",
+    "title": "Targeted Segment Challenges (eb74210fc693)",
+    "description": "Stored consensus record for eb74210fc693: 2 segments, DISTORTED severity 4 and PRESERVED, score 50, class MATERIAL_LOSS.",
     "langPair": "en -> vi",
     "segments": 2,
     "regTxHash": "",

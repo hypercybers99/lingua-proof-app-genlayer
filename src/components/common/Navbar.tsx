@@ -59,7 +59,7 @@ export const Navbar: React.FC = () => {
             <div className="font-serif font-bold text-lg leading-tight tracking-tight text-[#111827] dark:text-[#F3F4F6] flex items-center gap-2">
               LinguaProof
               <span className="text-[10px] font-sans font-semibold px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-950/60 text-[#0D6E6E] dark:text-teal-300 border border-teal-200 dark:border-teal-800">
-                Notary
+                Ledger
               </span>
             </div>
             <div className="text-[11px] text-slate-500 dark:text-slate-400">
@@ -101,8 +101,8 @@ export const Navbar: React.FC = () => {
             <span className="font-sans font-medium text-slate-700 dark:text-slate-300">
               {formattedBalance}
             </span>
-            <span className="text-slate-400">|</span>
-            <span className="text-slate-500 dark:text-slate-400">
+            <span className="text-slate-500 dark:text-slate-400">|</span>
+            <span className="text-slate-700 dark:text-slate-200">
               {address ? `${address.substring(0, 6)}...${address.substring(address.length - 4)}` : "No Wallet"}
             </span>
           </Link>
@@ -111,7 +111,7 @@ export const Navbar: React.FC = () => {
             type="button"
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+            className="p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition"
           >
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>

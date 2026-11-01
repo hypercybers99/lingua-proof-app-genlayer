@@ -86,7 +86,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
         {step === "idle" && (
           <div className="space-y-4">
             <p className="text-slate-600 dark:text-slate-400">
-              Triggering an audit will dispatch a consensus task to validators on {CHAIN_CONFIG.networkName}. Validators will execute blind back-translation and score each aligned segment against the official rubric.
+              Triggering an audit will dispatch a consensus task to validators on {CHAIN_CONFIG.networkName}. Validators will execute blind back-translation and score each aligned segment against the published rubric.
             </p>
 
             <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#121518] border border-slate-200 dark:border-slate-800 space-y-2 text-xs">
@@ -107,7 +107,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                 data-testid="audit-funding-notice"
                 className="p-3 rounded-lg bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-200 text-xs"
               >
-                <span className="font-semibold">Informational:</span> Faucet funding is optional on GenLayer Studionet (Preview); transactions succeed with 0 GEN balance. (Studionet Preview behavior may change).
+                <span className="font-semibold">Informational:</span> Faucet funding is optional on GenLayer Studionet (Preview); measured on 2026-10-31 on 4 transactions with 2 unfunded keys; Studionet Preview behavior may change.
               </div>
             )}
 

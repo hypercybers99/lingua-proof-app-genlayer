@@ -260,7 +260,7 @@ describe("State Readback Verification Before Workflow Completion", () => {
 });
 
 describe("RPC Failure Handling (Error State with Retry, Never Not Found)", () => {
-  it("renders network error with retry action on RPC network failure", async () => {
+  it("renders network error with retry action on RPC network failure and never outputs 'not found' or 'does not exist'", async () => {
     let attempt = 0;
     const fetchWithRetry = async () => {
       attempt++;
@@ -280,7 +280,8 @@ describe("RPC Failure Handling (Error State with Retry, Never Not Found)", () =>
 
     expect(uiState.status).toBe("error");
     expect(uiState.error).toContain("HTTP 504");
-    expect(uiState.error).not.toBe("not found");
+    expect(uiState.error?.toLowerCase()).not.toContain("not found");
+    expect(uiState.error?.toLowerCase()).not.toContain("does not exist");
 
     // Click retry
     if (uiState.status === "error") {

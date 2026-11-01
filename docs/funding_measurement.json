@@ -3,7 +3,7 @@
   "chainId": 61999,
   "contract": "0xba67d808f2b7E533ec06655eB730Ef5B27623EBF",
   "date": "2026-10-31",
-  "finding": "Unfunded keys with 0 GEN balance can execute all 4 @gl.public.write methods on GenLayer Studionet (Preview) without faucet funding.",
+  "finding": "Faucet funding is optional on GenLayer Studionet (Preview); measured on 2026-10-31 on 4 transactions with 2 unfunded keys; Studionet Preview behavior may change.",
   "note": "Studionet Preview behavior may change.",
   "transactions": [
     {

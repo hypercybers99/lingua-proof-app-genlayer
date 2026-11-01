@@ -94,9 +94,9 @@ export const EvidenceView: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="text-xs text-slate-500 space-y-1">
+                <div className="text-xs text-slate-700 dark:text-slate-300 space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-[11px] px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800">
+                    <span className="font-mono text-[11px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                       {scenario.langPair}
                     </span>
                     <span>•</span>
@@ -121,36 +121,44 @@ export const EvidenceView: React.FC = () => {
               {/* Hashes & Explorer Links */}
               <div className="pt-3 border-t border-[#E5E7EB] dark:border-[#2D3339] space-y-2 text-[11px] font-mono">
                 <div>
-                  <span className="text-slate-400 block mb-0.5 font-sans font-semibold">
+                  <span className="text-slate-600 dark:text-slate-400 block mb-0.5 font-sans font-semibold">
                     Registration Tx:
                   </span>
-                  <a
-                    href={`${CHAIN_CONFIG.explorerUrl}/tx/${scenario.regTxHash}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-flex items-center gap-1"
-                  >
-                    {scenario.regTxHash}
-                    <ExternalLink className="w-3 h-3 shrink-0" />
-                  </a>
+                  {scenario.regTxHash ? (
+                    <a
+                      href={`${CHAIN_CONFIG.explorerUrl}/tx/${scenario.regTxHash}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`View registration transaction ${scenario.regTxHash}`}
+                      className="text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-flex items-center gap-1"
+                    >
+                      {scenario.regTxHash}
+                      <ExternalLink className="w-3 h-3 shrink-0" aria-hidden="true" />
+                    </a>
+                  ) : (
+                    <span className="text-slate-600 dark:text-slate-400 italic font-sans">
+                      Stored on GenLayer Studionet (Preview)
+                    </span>
+                  )}
                 </div>
 
-                {scenario.auditTxHash && (
+                {scenario.auditTxHash ? (
                   <div>
-                    <span className="text-slate-400 block mb-0.5 font-sans font-semibold">
+                    <span className="text-slate-600 dark:text-slate-400 block mb-0.5 font-sans font-semibold">
                       Audit / Action Tx:
                     </span>
                     <a
                       href={`${CHAIN_CONFIG.explorerUrl}/tx/${scenario.auditTxHash}`}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={`View audit transaction ${scenario.auditTxHash}`}
                       className="text-[#0D6E6E] dark:text-teal-400 hover:underline break-all inline-flex items-center gap-1"
                     >
                       {scenario.auditTxHash}
-                      <ExternalLink className="w-3 h-3 shrink-0" />
+                      <ExternalLink className="w-3 h-3 shrink-0" aria-hidden="true" />
                     </a>
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
           );

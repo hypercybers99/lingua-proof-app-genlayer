@@ -7,7 +7,7 @@
   "deployTxHash": "0x948a4f5ade97dff6a9a26f4fdc1a011e3873835566829711fb66f5ee5ce2cca4",
   "translatorAddress": "0xD9Dda660B1516d00959eC0a8FA4d86299377F67a",
   "challengerAddress": "0x99A198593d05E11E7EF008154aBb18eedc9D5955",
-  "fundingMeasurementNotice": "Measured 2026-10-31: Faucet funding is optional on GenLayer Studionet (Preview); unfunded keys with 0 GEN balance can execute all 4 write methods with 0 gas. Studionet Preview behavior may change.",
+  "fundingMeasurementNotice": "Faucet funding is optional on GenLayer Studionet (Preview); measured on 2026-10-31 on 4 transactions with 2 unfunded keys; Studionet Preview behavior may change.",
   "unfundedKeyMeasurementTransactions": [
     {
       "action": "register_translation",

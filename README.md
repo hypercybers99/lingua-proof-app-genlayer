@@ -1,12 +1,12 @@
-# LinguaProof Notary dApp
+# LinguaProof dApp
 
 [![Network: GenLayer Studionet (Preview)](https://img.shields.io/badge/Network-GenLayer%20Studionet%20(Preview)-0D6E6E?style=flat-square)](https://studio.genlayer.com)
 [![Chain ID: 61999](https://img.shields.io/badge/Chain%20ID-61999-0A5555?style=flat-square)](https://studio.genlayer.com/api)
-[![Vitest: 65 Passed](https://img.shields.io/badge/Vitest-65%20Passed-emerald?style=flat-square)](tests/)
+[![Vitest: 84 Passed](https://img.shields.io/badge/Vitest-84%20Passed-emerald?style=flat-square)](tests/)
 [![Playwright: 28 Passed](https://img.shields.io/badge/Playwright-28%20Passed-blue?style=flat-square)](tests/e2e.spec.ts)
 [![License: MIT](https://img.shields.io/badge/License-MIT-slate?style=flat-square)](LICENSE)
 
-Decentralized, consensus-audited translation fidelity notary frontend for [LinguaProof](https://github.com/hypercybers99/lingua-proof-genlayer) on **GenLayer Studionet (Preview)**.
+Decentralized, consensus-audited translation fidelity ledger frontend for [LinguaProof](https://github.com/hypercybers99/lingua-proof-genlayer) on **GenLayer Studionet (Preview)**.
 
 LinguaProof enables organizations, DAOs, and translation teams to audit multilingual texts using a decentralized two-step LLM validator committee: blind back-translation followed by automated defect rubric evaluation, coupled with deterministic entity and anchor checks.
 
@@ -21,7 +21,7 @@ LinguaProof enables organizations, DAOs, and translation teams to audit multilin
 | **RPC Endpoint** | `https://studio.genlayer.com/api` |
 | **Block Explorer** | `https://explorer-studio.genlayer.com` |
 | **Faucet** | `https://faucet-studio.genlayer.com` |
-| **Active Notary Contract** | [`0xba67d808f2b7E533ec06655eB730Ef5B27623EBF`](https://explorer-studio.genlayer.com/address/0xba67d808f2b7E533ec06655eB730Ef5B27623EBF) |
+| **Active Ledger Contract** | [`0xba67d808f2b7E533ec06655eB730Ef5B27623EBF`](https://explorer-studio.genlayer.com/address/0xba67d808f2b7E533ec06655eB730Ef5B27623EBF) |
 | **Deploy Transaction** | [`0x948a4f5ade97dff6a9a26f4fdc1a011e3873835566829711fb66f5ee5ce2cca4`](https://explorer-studio.genlayer.com/tx/0x948a4f5ade97dff6a9a26f4fdc1a011e3873835566829711fb66f5ee5ce2cca4) |
 | **Pinned Code SHA-256** | `36c9582c004e758503dd766fb9dbb848495b9f163138007a443c3751e456f140` |
 | **Calibration Probe** | [`0xC3335F8200571ddFee27dF35590681d86f5F1df4`](https://explorer-studio.genlayer.com/address/0xC3335F8200571ddFee27dF35590681d86f5F1df4) *(Diagnostic Only)* |
@@ -73,8 +73,8 @@ npm run verify:bundle
 
 ## 4. Visual Identity & Design System
 
-- **Color Palette**: Light document-notary aesthetic on warm parchment (`#FBFBFA`), deep slate text (`#111827`), subtle borders (`#E5E7EB`), and deep teal accent (`#0D6E6E` / hover `#0A5555`). Full dark mode support via `prefers-color-scheme` or manual toggle.
-- **Original Logo & Seal**: High-resolution notary seal with linguistic alignment brackets (`[ A ⇋ 言 ]`) available in SVG and 1024x1024 PNG in `docs/logo/` and `public/`.
+- **Color Palette**: Light legal-document aesthetic on warm parchment (`#FBFBFA`), deep slate text (`#111827`), subtle borders (`#E5E7EB`), and deep teal accent (`#0D6E6E` / hover `#0A5555`). Full dark mode support via `prefers-color-scheme` or manual toggle.
+- **Original Mark & Seal**: Official verification emblem featuring a central balance beam and pillar representing fidelity equilibrium, dual parchment scrolls symbolizing aligned source and target segments, a gold scribe's feather quill, and an antique gold wax wafer seal. Available in SVG and 1024x1024 PNG in `docs/logo/` and `public/`.
 - **Accessibility & Occlusion**: ModalPortal system with explicit z-index scale, ESC to close, backdrop click handler, and zero browser alert/confirm calls.
 
 ---

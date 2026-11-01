@@ -15,10 +15,23 @@ const ROUTES = [
 ];
 
 const VIEWPORTS = [
-  { width: 1440, height: 900, name: "1440px" },
-  { width: 500, height: 800, name: "500px" },
-  { width: 390, height: 844, name: "390px" },
+  { width: 1440, height: 900, name: "1440px", darkMode: false },
+  { width: 500, height: 800, name: "500px", darkMode: false },
+  { width: 390, height: 844, name: "390px", darkMode: false },
+  { width: 1440, height: 900, name: "1440px-dark", darkMode: true },
 ];
+
+function formatViolations(violations) {
+  return (violations || []).map((v) => ({
+    id: v.id,
+    impact: v.impact,
+    help: v.help,
+    nodes: (v.nodes || []).slice(0, 3).map((node) => ({
+      target: Array.isArray(node.target) ? node.target.join(" ") : String(node.target),
+      html: (node.html || "").trim().slice(0, 160),
+    })),
+  }));
+}
 
 async function run() {
   console.log(`Starting axe-core audit against ${PROD_URL}...`);
@@ -33,6 +46,11 @@ async function run() {
 
     for (const route of ROUTES) {
       await page.goto(`${PROD_URL}${route.path}`, { waitUntil: "domcontentloaded" });
+      if (vp.darkMode) {
+        await page.evaluate(() => document.documentElement.classList.add("dark"));
+      } else {
+        await page.evaluate(() => document.documentElement.classList.remove("dark"));
+      }
       await page.waitForTimeout(1000);
 
       const axeResult = await new AxeBuilder({ page }).analyze();
@@ -51,6 +69,7 @@ async function run() {
         moderate,
         minor,
         total,
+        violations: formatViolations(axeResult.violations),
       });
 
       console.log(`Route [${vp.name}] ${route.name}: ${total} violations (${critical} critical, ${serious} serious)`);
@@ -58,7 +77,12 @@ async function run() {
 
     // Now test open modals on detail page
     await page.goto(`${PROD_URL}/t/f22eb2aaccbe`, { waitUntil: "domcontentloaded" });
-    await page.waitForSelector('[data-testid="open-audit-modal-btn"]', { timeout: 30000 });
+    if (vp.darkMode) {
+      await page.evaluate(() => document.documentElement.classList.add("dark"));
+    } else {
+      await page.evaluate(() => document.documentElement.classList.remove("dark"));
+    }
+    await page.waitForSelector('[data-testid="open-audit-modal-btn"]', { timeout: 45000 });
 
     // 1. Audit Modal
     const auditBtn = page.locator('[data-testid="open-audit-modal-btn"]');
@@ -77,6 +101,7 @@ async function run() {
         critical,
         serious,
         total,
+        violations: formatViolations(axeResult.violations),
       });
       console.log(`Modal [${vp.name}] Audit Modal: ${total} violations (${critical} critical, ${serious} serious)`);
       await page.locator('[data-testid="modal-close-button"]').click();
@@ -100,6 +125,7 @@ async function run() {
         critical,
         serious,
         total,
+        violations: formatViolations(axeResult.violations),
       });
       console.log(`Modal [${vp.name}] Challenge Modal: ${total} violations (${critical} critical, ${serious} serious)`);
       await page.locator('[data-testid="modal-close-button"]').click();
@@ -123,6 +149,7 @@ async function run() {
         critical,
         serious,
         total,
+        violations: formatViolations(axeResult.violations),
       });
       console.log(`Modal [${vp.name}] Revise Modal: ${total} violations (${critical} critical, ${serious} serious)`);
       await page.locator('[data-testid="modal-close-button"]').click();

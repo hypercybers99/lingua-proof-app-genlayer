@@ -89,7 +89,7 @@ export const WalletView: React.FC = () => {
             <span>Faucet Funding Optional (0 GEN Measured)</span>
           </div>
           <p className="text-slate-600 dark:text-slate-300">
-            On GenLayer Studionet (Preview), transaction gas fees are currently zero. On-chain measurements (recorded 2026-10-31) confirm that unfunded throwaway keys with 0 GEN balance successfully execute registration, audit, challenge, and revision transactions. Faucet funding remains optional. (Studionet Preview behavior may change).
+            Faucet funding is optional on GenLayer Studionet (Preview); measured on 2026-10-31 on 4 transactions with 2 unfunded keys; Studionet Preview behavior may change.
           </p>
         </div>
       )}
@@ -98,7 +98,7 @@ export const WalletView: React.FC = () => {
       <div className="p-6 rounded-2xl bg-white dark:bg-[#181C20] border border-[#E5E7EB] dark:border-[#2D3339] shadow-sm space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <div className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
               Active Wallet Address
             </div>
             <div className="font-mono text-sm sm:text-base font-bold text-slate-900 dark:text-white break-all flex items-center gap-2">
@@ -107,7 +107,7 @@ export const WalletView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleCopy(address, true)}
-                  className="p-1 rounded text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition"
+                  className="p-1 rounded text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition"
                   title="Copy Address"
                 >
                   {copiedAddr ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
@@ -117,7 +117,7 @@ export const WalletView: React.FC = () => {
           </div>
 
           <div className="p-4 rounded-xl bg-[#F5F5F0] dark:bg-[#121518] border border-slate-200 dark:border-slate-800 text-right sm:text-right shrink-0">
-            <div className="text-xs font-semibold text-slate-500">Available Balance</div>
+            <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">Available Balance</div>
             <div className="text-xl font-bold font-mono text-slate-900 dark:text-white flex items-center justify-end gap-2 mt-0.5">
               <span>{formattedBalance}</span>
               <button

@@ -77,17 +77,51 @@ export const TranslationDetailView: React.FC = () => {
     );
   }
 
-  if (error || !translation) {
+  if (error) {
     return (
-      <div className="py-12 text-center space-y-4">
+      <div className="py-12 text-center space-y-4" data-testid="rpc-error-state">
         <div className="w-12 h-12 mx-auto rounded-full bg-rose-100 dark:bg-rose-950/60 flex items-center justify-center text-rose-600">
           <AlertCircle className="w-6 h-6" />
         </div>
         <h2 className="text-xl font-serif font-bold text-slate-900 dark:text-white">
-          Translation Not Found
+          RPC Network Communication Error
         </h2>
         <p className="text-sm text-slate-500 max-w-md mx-auto">
-          {error || `No record was found on Studionet with ID "${id}".`}
+          {error}
+        </p>
+        <div className="flex justify-center gap-3">
+          <button
+            type="button"
+            data-testid="rpc-retry-btn"
+            onClick={loadAll}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#0D6E6E] text-white rounded-lg text-sm font-semibold hover:bg-[#0A5656]"
+          >
+            <RefreshCw className="w-4 h-4" />
+            Retry Request
+          </button>
+          <Link
+            to="/translations"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-lg text-sm font-semibold"
+          >
+            <Layers className="w-4 h-4" />
+            Back to Explorer
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  if (!translation) {
+    return (
+      <div className="py-12 text-center space-y-4">
+        <div className="w-12 h-12 mx-auto rounded-full bg-amber-100 dark:bg-amber-950/60 flex items-center justify-center text-amber-600">
+          <Info className="w-6 h-6" />
+        </div>
+        <h2 className="text-xl font-serif font-bold text-slate-900 dark:text-white">
+          No Record Associated With This Identifier
+        </h2>
+        <p className="text-sm text-slate-500 max-w-md mx-auto">
+          The requested identifier "{id}" returned an empty translation record from GenLayer Studionet (Preview).
         </p>
         <Link
           to="/translations"
@@ -280,7 +314,7 @@ export const TranslationDetailView: React.FC = () => {
                 {/* Segment Header */}
                 <div className="px-5 py-3 bg-[#F5F5F0] dark:bg-[#13171A] border-b border-[#E5E7EB] dark:border-[#2D3339] flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs font-bold text-slate-500">
+                    <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-300">
                       Segment #{seg.index + 1}
                     </span>
                     {seg.auditLabel && (

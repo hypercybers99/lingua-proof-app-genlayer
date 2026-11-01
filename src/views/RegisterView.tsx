@@ -159,10 +159,10 @@ export const RegisterView: React.FC = () => {
       {/* Header */}
       <div className="border-b border-[#E5E7EB] dark:border-[#2D3339] pb-5">
         <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#111827] dark:text-[#F3F4F6]">
-          Register Translation for Notarization
+          Register Translation for Audit
         </h1>
         <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-          Submit aligned bilingual segments to the {CHAIN_CONFIG.networkName} notary contract.
+          Submit aligned bilingual segments to the {CHAIN_CONFIG.networkName} ledger contract.
         </p>
       </div>
 
@@ -188,7 +188,7 @@ export const RegisterView: React.FC = () => {
                 maxLength={120}
                 className="w-full p-2.5 text-sm bg-[#FBFBFA] dark:bg-[#121518] border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-slate-100 focus:outline-none focus:border-teal-500"
               />
-              <div className="text-[11px] text-slate-400 mt-1 text-right">
+              <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 text-right">
                 {label.length} / 120 chars
               </div>
             </div>
@@ -347,7 +347,7 @@ export const RegisterView: React.FC = () => {
               data-testid="register-funding-notice"
               className="p-3.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-200 text-xs"
             >
-              <span className="font-semibold">Informational:</span> Faucet funding is optional on GenLayer Studionet (Preview); transactions succeed with 0 GEN balance. (Studionet Preview behavior may change).
+              <span className="font-semibold">Informational:</span> Faucet funding is optional on GenLayer Studionet (Preview); measured on 2026-10-31 on 4 transactions with 2 unfunded keys; Studionet Preview behavior may change.
             </div>
           )}
 

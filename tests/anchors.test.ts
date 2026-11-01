@@ -34,11 +34,11 @@ describe("Anchors Extractor & Comparison", () => {
   });
 
   it("strips utm tracking parameters from URLs", () => {
-    const text = "Reference link: https://example.com/page?utm_source=twitter&ref=notary for documentation.";
+    const text = "Reference link: https://example.com/page?utm_source=twitter&ref=ledger for documentation.";
     const anchors = extractAnchors(text);
     expect(anchors).toContainEqual({
       kind: "URL",
-      val: "example.com/page?ref=notary",
+      val: "example.com/page?ref=ledger",
     });
   });
 

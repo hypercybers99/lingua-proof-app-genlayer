@@ -21,12 +21,12 @@ console.log(`Generated ${ZIP_NAME} (${sizeKb} KB)`);
 console.log(`SHA-256: ${hexHash}`);
 
 const repoUrl = "https://github.com/hypercybers99/lingua-proof-app-genlayer";
-const releaseTag = "v1.0.0";
+const releaseTag = "v1.0.1";
 const releaseAssetUrl = `${repoUrl}/releases/download/${releaseTag}/${ZIP_NAME}`;
 
 const content = `# LinguaProof Release Artifacts
 
-This document records the downloadable archive of bulk artifacts, on-chain evidence runs, and verification screens for LinguaProof v1.0.0 on GenLayer Studionet (Preview).
+This document records the downloadable archive of bulk artifacts, on-chain evidence runs, and verification screens for LinguaProof v1.0.1 on GenLayer Studionet (Preview).
 
 ## Download & Integrity
 

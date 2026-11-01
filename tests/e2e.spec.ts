@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("LinguaProof Notary dApp E2E Flows", () => {
+test.describe("LinguaProof dApp E2E Flows", () => {
   test("loads landing page with live on-chain contract identity and metrics", async ({ page }) => {
     await page.goto("/");
     await expect(page).toHaveTitle(/LinguaProof/);

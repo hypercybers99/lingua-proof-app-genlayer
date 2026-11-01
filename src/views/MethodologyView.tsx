@@ -64,9 +64,9 @@ export const MethodologyView: React.FC = () => {
           Validators classify each segment into exactly one closed-enumeration verdict. Any non-preserved finding mandates explicit quote extraction from both source and back-translation to provide evidentiary auditability:
         </p>
 
-        <div className="overflow-x-auto rounded-xl border border-[#E5E7EB] dark:border-[#2D3339] bg-white dark:bg-[#181C20] shadow-sm">
+        <div tabIndex={0} role="region" aria-label="Rubric classification table" className="overflow-x-auto rounded-xl border border-[#E5E7EB] dark:border-[#2D3339] bg-white dark:bg-[#181C20] shadow-sm focus:outline-none focus:ring-1 focus:ring-teal-500">
           <table className="w-full text-left text-xs">
-            <thead className="bg-[#F5F5F0] dark:bg-[#13171A] text-slate-600 dark:text-slate-400 font-semibold border-b border-[#E5E7EB] dark:border-[#2D3339]">
+            <thead className="bg-[#F5F5F0] dark:bg-[#13171A] text-slate-700 dark:text-slate-300 font-semibold border-b border-[#E5E7EB] dark:border-[#2D3339]">
               <tr>
                 <th className="py-2.5 px-4">Verdict Label</th>
                 <th className="py-2.5 px-4">Severity</th>
@@ -74,45 +74,45 @@ export const MethodologyView: React.FC = () => {
                 <th className="py-2.5 px-4">Preserved Weight</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#E5E7EB] dark:divide-[#2D3339]">
+            <tbody className="divide-y divide-[#E5E7EB] dark:divide-[#2D3339] text-slate-700 dark:text-slate-300">
               <tr>
-                <td className="py-2.5 px-4 font-mono font-bold text-emerald-600">PRESERVED</td>
+                <td className="py-2.5 px-4 font-mono font-bold text-emerald-700 dark:text-emerald-400">PRESERVED</td>
                 <td className="py-2.5 px-4">0</td>
                 <td className="py-2.5 px-4">All semantic propositions, entities, and conditions accurately maintained.</td>
                 <td className="py-2.5 px-4">1.0 segment</td>
               </tr>
               <tr>
-                <td className="py-2.5 px-4 font-mono font-bold text-amber-600">SHIFTED</td>
+                <td className="py-2.5 px-4 font-mono font-bold text-amber-700 dark:text-amber-400">SHIFTED</td>
                 <td className="py-2.5 px-4">1</td>
                 <td className="py-2.5 px-4">Minor tone, register, or stylistic divergence without altering substantive obligations.</td>
                 <td className="py-2.5 px-4">0.0 segments</td>
               </tr>
               <tr>
-                <td className="py-2.5 px-4 font-mono font-bold text-orange-600">DISTORTED</td>
+                <td className="py-2.5 px-4 font-mono font-bold text-orange-700 dark:text-orange-400">DISTORTED</td>
                 <td className="py-2.5 px-4">2</td>
                 <td className="py-2.5 px-4">Core semantic assertion altered, inverted, or substantive clause reversed.</td>
                 <td className="py-2.5 px-4">0.0 segments</td>
               </tr>
               <tr>
-                <td className="py-2.5 px-4 font-mono font-bold text-rose-600">OMITTED</td>
+                <td className="py-2.5 px-4 font-mono font-bold text-rose-700 dark:text-rose-400">OMITTED</td>
                 <td className="py-2.5 px-4">3</td>
                 <td className="py-2.5 px-4">Essential condition, actor, threshold, or consequence missing from target.</td>
                 <td className="py-2.5 px-4">0.0 segments</td>
               </tr>
               <tr>
-                <td className="py-2.5 px-4 font-mono font-bold text-rose-600">ADDED</td>
+                <td className="py-2.5 px-4 font-mono font-bold text-rose-700 dark:text-rose-400">ADDED</td>
                 <td className="py-2.5 px-4">3</td>
                 <td className="py-2.5 px-4">Extraneous claim, condition, or obligation inserted that does not exist in source.</td>
                 <td className="py-2.5 px-4">0.0 segments</td>
               </tr>
               <tr>
-                <td className="py-2.5 px-4 font-mono font-bold text-purple-600">ANCHOR_ALTERED</td>
+                <td className="py-2.5 px-4 font-mono font-bold text-purple-700 dark:text-purple-400">ANCHOR_ALTERED</td>
                 <td className="py-2.5 px-4">4</td>
                 <td className="py-2.5 px-4">Deterministic entity (hex address, URL, amount, ISO date) altered or substituted.</td>
                 <td className="py-2.5 px-4">0.0 segments</td>
               </tr>
               <tr>
-                <td className="py-2.5 px-4 font-mono font-bold text-slate-500">UNCLEAR</td>
+                <td className="py-2.5 px-4 font-mono font-bold text-slate-700 dark:text-slate-300">UNCLEAR</td>
                 <td className="py-2.5 px-4">0</td>
                 <td className="py-2.5 px-4">Ambiguous phrasing. Counts as 0.5 preserved segment. Triggers INCONCLUSIVE if &gt;25%.</td>
                 <td className="py-2.5 px-4">0.5 segment</td>
@@ -137,7 +137,7 @@ export const MethodologyView: React.FC = () => {
           <div className="p-2.5 bg-white dark:bg-black/30 rounded border border-slate-200 dark:border-slate-800">
             <code>round_half_to_even(100 * (count(PRESERVED) + 0.5 * count(UNCLEAR)) / total_segments)</code>
           </div>
-          <p className="text-[11px] font-sans text-slate-500">
+          <p className="text-[11px] font-sans text-slate-700 dark:text-slate-300">
             Python 3 round-half-to-even is applied identically across contract execution, unit tests, and the dApp UI.
           </p>
         </div>
@@ -145,23 +145,23 @@ export const MethodologyView: React.FC = () => {
         <div className="grid sm:grid-cols-4 gap-3 text-xs">
           <div className="p-3 rounded-lg border border-emerald-300 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/40">
             <div className="font-bold text-emerald-800 dark:text-emerald-200">FAITHFUL</div>
-            <div className="text-emerald-600 dark:text-emerald-400 mt-1">Score: 90–100</div>
-            <div className="text-[10px] text-slate-500 mt-1">High fidelity notarization</div>
+            <div className="text-emerald-800 dark:text-emerald-300 font-medium mt-1">Score: 90–100</div>
+            <div className="text-[10px] text-slate-600 dark:text-slate-400 mt-1">High fidelity audit record</div>
           </div>
           <div className="p-3 rounded-lg border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40">
             <div className="font-bold text-amber-800 dark:text-amber-200">MINOR_SHIFT</div>
-            <div className="text-amber-600 dark:text-amber-400 mt-1">Score: 70–89</div>
-            <div className="text-[10px] text-slate-500 mt-1">Subtle tone or stylistic nuance</div>
+            <div className="text-amber-900 dark:text-amber-300 font-medium mt-1">Score: 70–89</div>
+            <div className="text-[10px] text-slate-600 dark:text-slate-400 mt-1">Subtle tone or stylistic nuance</div>
           </div>
           <div className="p-3 rounded-lg border border-rose-300 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/40">
             <div className="font-bold text-rose-800 dark:text-rose-200">MATERIAL_LOSS</div>
-            <div className="text-rose-600 dark:text-rose-400 mt-1">Score: &lt; 70</div>
-            <div className="text-[10px] text-slate-500 mt-1">Substantive distortion or entity alteration</div>
+            <div className="text-rose-800 dark:text-rose-300 font-medium mt-1">Score: &lt; 70</div>
+            <div className="text-[10px] text-slate-600 dark:text-slate-400 mt-1">Substantive distortion or entity alteration</div>
           </div>
           <div className="p-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40">
             <div className="font-bold text-slate-800 dark:text-slate-200">INCONCLUSIVE</div>
-            <div className="text-slate-600 dark:text-slate-400 mt-1">UNCLEAR &gt; 25%</div>
-            <div className="text-[10px] text-slate-500 mt-1">Excessive linguistic ambiguity</div>
+            <div className="text-slate-800 dark:text-slate-300 font-medium mt-1">UNCLEAR &gt; 25%</div>
+            <div className="text-[10px] text-slate-600 dark:text-slate-400 mt-1">Excessive linguistic ambiguity</div>
           </div>
         </div>
       </section>
@@ -198,7 +198,7 @@ export const MethodologyView: React.FC = () => {
           </div>
 
           <div className="p-3 bg-white/80 dark:bg-black/30 rounded-lg text-xs text-slate-700 dark:text-slate-300 font-sans">
-            <strong>Implication for Users:</strong> An on-chain audit score is an automated fidelity notary signal, not an absolute certainty. Subtle stylistic voice or tense shifts may occasionally lower a score from 100 to 70–80. This is why LinguaProof provides built-in <strong>segment challenges</strong> and <strong>linked revisions</strong>, allowing translators to dispute false positives or refine phrasing transparently.
+            <strong>Implication for Users:</strong> An on-chain audit score is an automated fidelity audit signal, not an absolute certainty. Subtle stylistic voice or tense shifts may occasionally lower a score from 100 to 70–80. This is why LinguaProof provides built-in <strong>segment challenges</strong> and <strong>linked revisions</strong>, allowing translators to dispute false positives or refine phrasing transparently.
           </div>
         </div>
       </section>

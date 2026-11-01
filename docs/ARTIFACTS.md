@@ -1,16 +1,16 @@
 # LinguaProof Release Artifacts
 
-This document records the downloadable archive of bulk artifacts, on-chain evidence runs, and verification screens for LinguaProof v1.0.0 on GenLayer Studionet (Preview).
+This document records the downloadable archive of bulk artifacts, on-chain evidence runs, and verification screens for LinguaProof v1.0.1 on GenLayer Studionet (Preview).
 
 ## Download & Integrity
 
-- **Release Tag**: [v1.0.0](https://github.com/hypercybers99/lingua-proof-app-genlayer/releases/tag/v1.0.0)
+- **Release Tag**: [v1.0.1](https://github.com/hypercybers99/lingua-proof-app-genlayer/releases/tag/v1.0.1)
 - **Archive File**: `release-artifacts.zip`
-- **Download URL**: [https://github.com/hypercybers99/lingua-proof-app-genlayer/releases/download/v1.0.0/release-artifacts.zip](https://github.com/hypercybers99/lingua-proof-app-genlayer/releases/download/v1.0.0/release-artifacts.zip)
+- **Download URL**: [https://github.com/hypercybers99/lingua-proof-app-genlayer/releases/download/v1.0.1/release-artifacts.zip](https://github.com/hypercybers99/lingua-proof-app-genlayer/releases/download/v1.0.1/release-artifacts.zip)
 - **File Size**: 911 KB
 - **SHA-256 Checksum**:
 ```
-26a27dc03f3d9bf64c9025b8073fa7ff0189561239055e3c33584d49cb4e98c3
+be6c6bd712407b4731233e541af5481f8331015be26ca2a1343409529f3219d5
 ```
 
 ## Verification Command

@@ -5,11 +5,12 @@ import { StoredTranslation, FidelityClass } from "../lib/types";
 import { getFidelityColor } from "../lib/score";
 import { SkeletonLoader } from "../components/common/SkeletonLoader";
 import { CHAIN_CONFIG } from "../config/chain";
-import { Search, Filter, ArrowUpDown, ChevronLeft, ChevronRight, Layers, PlusCircle } from "lucide-react";
+import { Search, Filter, ArrowUpDown, ChevronLeft, ChevronRight, Layers, PlusCircle, AlertCircle, RefreshCw } from "lucide-react";
 
 export const TranslationsListView: React.FC = () => {
   const [translations, setTranslations] = useState<StoredTranslation[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(0);
   const [search, setSearch] = useState("");
   const [selectedClass, setSelectedClass] = useState<string>("ALL");
@@ -19,35 +20,36 @@ export const TranslationsListView: React.FC = () => {
 
   const pageSize = 10;
 
-  useEffect(() => {
-    let mounted = true;
-    async function loadTranslations() {
-      setLoading(true);
-      try {
-        // Fetch up to 50 translation IDs from contract
-        const ids = await fetchTranslationIds(0, 50);
-        if (mounted && ids && ids.length > 0) {
-          const list: StoredTranslation[] = [];
-          for (const id of ids) {
-            try {
-              const t = await fetchTranslation(id);
-              if (t) list.push(t);
-            } catch {
-              // continue
-            }
+  const loadTranslations = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      // Fetch up to 50 translation IDs from contract
+      const ids = await fetchTranslationIds(0, 50);
+      if (ids && ids.length > 0) {
+        const list: StoredTranslation[] = [];
+        for (const id of ids) {
+          try {
+            const t = await fetchTranslation(id);
+            if (t) list.push(t);
+          } catch {
+            // continue
           }
-          if (mounted) setTranslations(list);
         }
-      } catch (err) {
-        console.warn("Could not load translations from contract:", err);
-      } finally {
-        if (mounted) setLoading(false);
+        setTranslations(list);
+      } else {
+        setTranslations([]);
       }
+    } catch (err: any) {
+      console.warn("Could not load translations from contract:", err);
+      setError(err?.message || "Failed to load translation records from contract RPC endpoint.");
+    } finally {
+      setLoading(false);
     }
+  };
+
+  useEffect(() => {
     loadTranslations();
-    return () => {
-      mounted = false;
-    };
   }, []);
 
   const filtered = useMemo(() => {
@@ -107,7 +109,7 @@ export const TranslationsListView: React.FC = () => {
             Translation Explorer
           </h1>
           <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-            Browse and inspect registered translation fidelity notary records on {CHAIN_CONFIG.networkName}
+            Browse and inspect registered translation fidelity audit records on {CHAIN_CONFIG.networkName}
           </p>
         </div>
         <Link
@@ -193,6 +195,27 @@ export const TranslationsListView: React.FC = () => {
         {loading ? (
           <div className="p-6">
             <SkeletonLoader count={5} className="h-16 w-full" />
+          </div>
+        ) : error ? (
+          <div className="p-8 text-center space-y-4" data-testid="rpc-error-state">
+            <div className="w-10 h-10 mx-auto rounded-full bg-rose-100 dark:bg-rose-950/60 flex items-center justify-center text-rose-600">
+              <AlertCircle className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-serif font-bold text-slate-900 dark:text-white">
+              RPC Network Communication Error
+            </h3>
+            <p className="text-sm text-slate-500 max-w-md mx-auto">
+              {error}
+            </p>
+            <button
+              type="button"
+              data-testid="rpc-retry-btn"
+              onClick={loadTranslations}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#0D6E6E] hover:bg-[#0A5656] text-white rounded-lg text-sm font-semibold transition"
+            >
+              <RefreshCw className="w-4 h-4" />
+              Retry Request
+            </button>
           </div>
         ) : paginated.length === 0 ? (
           <div className="p-12 text-center text-slate-500 dark:text-slate-400 space-y-3">

@@ -67,7 +67,7 @@ export const LandingView: React.FC = () => {
         <div className="max-w-3xl space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-teal-100/80 dark:bg-teal-950/80 text-[#0D6E6E] dark:text-teal-300 border border-teal-200 dark:border-teal-800">
             <ShieldCheck className="w-4 h-4" />
-            Consensus Notary for Translation Integrity
+            Consensus Ledger for Translation Integrity
           </div>
 
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#111827] dark:text-[#F3F4F6] leading-[1.15]">
@@ -103,9 +103,9 @@ export const LandingView: React.FC = () => {
           </div>
         </div>
 
-        {/* Notary Seal Decorative Stamp */}
+        {/* Verification Seal Decorative Stamp */}
         <div className="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 opacity-90 pointer-events-none">
-          <img src="/logo.svg" alt="LinguaProof Notary Seal" className="w-64 h-64 drop-shadow-md" />
+          <img src="/logo.svg" alt="LinguaProof Verification Seal" className="w-64 h-64 drop-shadow-md" />
         </div>
       </div>
 
@@ -113,7 +113,7 @@ export const LandingView: React.FC = () => {
       <div className="p-6 rounded-xl bg-[#F5F5F0] dark:bg-[#181C20] border border-[#E5E7EB] dark:border-[#2D3339] shadow-sm">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            <div className="text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
               Contract Deployment Status
             </div>
             <div className="font-mono text-sm font-bold text-slate-900 dark:text-white break-all flex items-center gap-2">
@@ -128,7 +128,7 @@ export const LandingView: React.FC = () => {
                 <ExternalLink className="w-4 h-4" />
               </a>
             </div>
-            <div className="text-xs text-slate-500">
+            <div className="text-xs text-slate-700 dark:text-slate-300">
               Deployed on {CHAIN_CONFIG.networkName} (Chain ID {CHAIN_CONFIG.chainId})
             </div>
           </div>
@@ -138,7 +138,7 @@ export const LandingView: React.FC = () => {
               href={`${CHAIN_CONFIG.explorerUrl}/address/${CHAIN_CONFIG.diagnosticContract}`}
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#121518] text-xs font-mono text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#121518] text-xs font-mono text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
               Calibration Probe (Diagnostic)
@@ -151,47 +151,47 @@ export const LandingView: React.FC = () => {
       {/* Real On-Chain Metrics */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="p-5 rounded-xl bg-white dark:bg-[#181C20] border border-[#E5E7EB] dark:border-[#2D3339] shadow-sm">
-          <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
+          <div className="flex items-center justify-between text-slate-700 dark:text-slate-300 mb-2">
             <span className="text-xs font-medium">Translations Registered</span>
             <FileText className="w-4 h-4 text-[#0D6E6E]" />
           </div>
           <div className="text-2xl font-bold font-serif text-[#111827] dark:text-[#F3F4F6]">
             {loading ? <SkeletonLoader className="h-8 w-16" /> : meta ? meta.translations_total : "10"}
           </div>
-          <div className="text-[11px] text-slate-400 mt-1">Stored on-chain</div>
+          <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-1">Stored on-chain</div>
         </div>
 
         <div className="p-5 rounded-xl bg-white dark:bg-[#181C20] border border-[#E5E7EB] dark:border-[#2D3339] shadow-sm">
-          <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
+          <div className="flex items-center justify-between text-slate-700 dark:text-slate-300 mb-2">
             <span className="text-xs font-medium">Consensus Audits</span>
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
           </div>
           <div className="text-2xl font-bold font-serif text-[#111827] dark:text-[#F3F4F6]">
             {loading ? <SkeletonLoader className="h-8 w-16" /> : meta ? meta.audits_total : "10"}
           </div>
-          <div className="text-[11px] text-slate-400 mt-1">Independent validator evaluations</div>
+          <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-1">Independent validator evaluations</div>
         </div>
 
         <div className="p-5 rounded-xl bg-white dark:bg-[#181C20] border border-[#E5E7EB] dark:border-[#2D3339] shadow-sm">
-          <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
+          <div className="flex items-center justify-between text-slate-700 dark:text-slate-300 mb-2">
             <span className="text-xs font-medium">Segment Challenges</span>
             <Scale className="w-4 h-4 text-amber-600" />
           </div>
           <div className="text-2xl font-bold font-serif text-[#111827] dark:text-[#F3F4F6]">
             {loading ? <SkeletonLoader className="h-8 w-16" /> : meta ? meta.challenges_total : "2"}
           </div>
-          <div className="text-[11px] text-slate-400 mt-1">Disputed defect verdicts</div>
+          <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-1">Disputed defect verdicts</div>
         </div>
 
         <div className="p-5 rounded-xl bg-white dark:bg-[#181C20] border border-[#E5E7EB] dark:border-[#2D3339] shadow-sm">
-          <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
+          <div className="flex items-center justify-between text-slate-700 dark:text-slate-300 mb-2">
             <span className="text-xs font-medium">Linked Revisions</span>
             <RefreshCw className="w-4 h-4 text-indigo-600" />
           </div>
           <div className="text-2xl font-bold font-serif text-[#111827] dark:text-[#F3F4F6]">
             {loading ? <SkeletonLoader className="h-8 w-16" /> : meta ? meta.revisions_total : "2"}
           </div>
-          <div className="text-[11px] text-slate-400 mt-1">Transparent lineage updates</div>
+          <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-1">Transparent lineage updates</div>
         </div>
       </div>
 
